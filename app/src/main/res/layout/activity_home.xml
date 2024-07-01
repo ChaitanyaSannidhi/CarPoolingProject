@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity"
+    tools:ignore="MissingConstraints">
+
+    <TextView
+        android:id="@+id/textView8"
+        android:layout_width="400dp"
+        android:layout_height="83dp"
+        android:fontFamily="sans-serif-smallcaps"
+        android:text="Welcome"
+        android:textColor="#8A2BE2"
+        android:textSize="60sp"
+        app:layout_constraintBottom_toTopOf="@+id/imageView5"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.842"
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteX="76dp">
+
+    </TextView>
+
+    <Button
+        android:id="@+id/Requestbutton"
+        android:layout_width="214dp"
+        android:layout_height="82dp"
+        android:layout_marginTop="14dp"
+        android:text="Request a Ride"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/Offerbutton" />
+
+    <Button
+        android:id="@+id/Offerbutton"
+        android:layout_width="214dp"
+        android:layout_height="82dp"
+        android:layout_marginTop="48dp"
+        android:text="Offer a Ride"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView5" />
+
+    <ImageView
+        android:id="@+id/imageView5"
+        android:layout_width="295dp"
+        android:layout_height="399dp"
+        android:src="@drawable/_951cc3f2_9dc1_46c5_a8d5_1f0f6ce00626_jpeg"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.413"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:layout_editor_absoluteY="178dp" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

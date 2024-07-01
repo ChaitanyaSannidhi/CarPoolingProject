@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/untitled_design__7_"
+    tools:context=".LoginActivity">
+
+
+    <!-- Removed redundant FragmentContainerView and ImageView elements -->
+
+    <TextView
+        android:id="@+id/login"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="148dp"
+        android:fontFamily="sans-serif-condensed"
+
+        android:text="Login"
+        android:textColor="@color/white"
+        android:textSize="50sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.529"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/loginmail"
+        android:layout_width="91dp"
+        android:layout_height="41dp"
+        android:layout_marginTop="180dp"
+        android:fontFamily="sans-serif-condensed"
+        android:text="Email:"
+        android:textColor="@color/black"
+        android:textSize="30sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.087"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/login" />
+
+    <EditText
+        android:id="@+id/loginentername"
+        android:layout_width="344dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="8dp"
+        android:hint="Enter your email"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.294"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/loginmail" />
+
+    <TextView
+        android:id="@+id/loginpass"
+        android:layout_width="157dp"
+        android:layout_height="42dp"
+        android:layout_marginStart="28dp"
+        android:layout_marginTop="20dp"
+        android:fontFamily="sans-serif-condensed"
+        android:text="Password:"
+        android:textColor="@color/black"
+        android:textSize="30sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/loginentername" />
+
+    <EditText
+        android:id="@+id/loginenterpass"
+        android:layout_width="355dp"
+        android:layout_height="52dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="8dp"
+        android:hint="Enter your password"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.473"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/loginpass" />
+
+
+    <TextView
+        android:id="@+id/noaccount"
+        android:layout_width="175dp"
+        android:layout_height="33dp"
+        android:layout_marginStart="28dp"
+        android:layout_marginTop="28dp"
+        android:text="don't have an account?"
+        android:textColor="#0000ff"
+        android:textSize="16sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/logbtn" />
+
+    <TextView
+        android:id="@+id/textView4"
+        android:layout_width="178dp"
+        android:layout_height="34dp"
+        android:layout_marginStart="224dp"
+        android:layout_marginTop="28dp"
+        android:text="forgot password?"
+        android:textColor="#0000ff"
+        android:textSize="16sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/logbtn" />
+
+    <Button
+        android:id="@+id/logbtn"
+        android:layout_width="281dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="32dp"
+        android:text="Login"
+        android:textSize="23sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.492"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/loginenterpass" />
+
+    <ImageView
+        android:id="@+id/imageView2"
+        android:layout_width="44dp"
+        android:layout_height="55dp"
+        android:layout_marginStart="100dp"
+        android:layout_marginTop="48dp"
+        android:src="@drawable/g_logo"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/noaccount" />
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="41dp"
+        android:layout_height="61dp"
+        android:layout_marginStart="124dp"
+        android:layout_marginTop="44dp"
+        android:src="@drawable/f_logo"
+        app:layout_constraintStart_toEndOf="@+id/imageView2"
+        app:layout_constraintTop_toBottomOf="@+id/textView4" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

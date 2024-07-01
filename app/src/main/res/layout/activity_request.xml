@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/untitled_design__3_">
+    <TextView
+        android:id="@+id/requesthead"
+        android:layout_width="240dp"
+        android:layout_height="70dp"
+        android:layout_marginTop="184dp"
+        android:fontFamily="sans-serif-condensed"
+        android:text="Request a Ride"
+        android:textColor="@color/white"
+        android:textSize="40sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.438"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/imageView4"
+        android:layout_width="49dp"
+        android:layout_height="39dp"
+        android:layout_marginStart="52dp"
+        android:layout_marginTop="32dp"
+        android:src="@drawable/baseline_location_on_24"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editend" />
+
+    <EditText
+        android:id="@+id/editstart"
+        android:layout_width="231dp"
+        android:layout_height="56dp"
+        android:layout_marginStart="66dp"
+        android:layout_marginTop="92dp"
+        android:hint="Starting Point"
+        android:textColor="@color/white"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.032"
+        app:layout_constraintStart_toStartOf="@+id/imageView4"
+        app:layout_constraintTop_toBottomOf="@+id/requesthead" />
+
+    <ImageView
+        android:id="@+id/editend"
+        android:layout_width="49dp"
+        android:layout_height="39dp"
+        android:layout_marginStart="56dp"
+        android:layout_marginTop="108dp"
+        android:src="@drawable/baseline_location_on_24"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/requesthead" />
+
+    <EditText
+        android:id="@+id/editdes"
+        android:layout_width="231dp"
+        android:layout_height="56dp"
+        android:layout_marginTop="20dp"
+        android:hint="Enter destination point"
+        android:textColor="@color/white"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.215"
+        app:layout_constraintStart_toEndOf="@+id/imageView4"
+        app:layout_constraintTop_toBottomOf="@+id/editstart" />
+
+    <ImageView
+        android:id="@+id/calimg"
+        android:layout_width="42dp"
+        android:layout_height="41dp"
+        android:layout_marginStart="56dp"
+        android:layout_marginTop="38dp"
+        android:layout_marginEnd="20dp"
+        android:src="@drawable/baseline_calendar_month_24"
+        app:layout_constraintEnd_toStartOf="@+id/reqdate"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView4" />
+
+    <EditText
+        android:id="@+id/reqdate"
+        android:layout_width="231dp"
+        android:layout_height="56dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="60dp"
+        android:hint="Enter the Date"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editdes" />
+
+    <ImageView
+        android:id="@+id/seatimg"
+        android:layout_width="45dp"
+        android:layout_height="38dp"
+        android:layout_marginStart="56dp"
+        android:layout_marginTop="25dp"
+        android:layout_marginEnd="17dp"
+        android:src="@drawable/baseline_airline_seat_recline_normal_24"
+        app:layout_constraintEnd_toStartOf="@+id/reqseat"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/calimg" />
+
+    <EditText
+        android:id="@+id/reqseat"
+        android:layout_width="231dp"
+        android:layout_height="56dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="60dp"
+        android:hint="Number of persons"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/reqdate" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

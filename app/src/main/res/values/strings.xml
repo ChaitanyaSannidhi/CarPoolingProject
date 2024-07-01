@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">CarPooling</string>
+    <string name="signup">Signup</string>
+    <string name="login">Login</string>
+    <string name="name">Name</string>
+    <string name="g_l">GoogleLogo</string>
+    <string name="Pass">EnterPassword</string>
+    <string name="email">Email</string>
+    <string name="startsig">Sign Up</string>
+</resources>
