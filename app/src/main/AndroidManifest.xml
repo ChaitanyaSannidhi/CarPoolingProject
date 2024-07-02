@@ -28,6 +28,11 @@
         <activity
             android:name=".SignupActivity"
             android:exported="false" />
+
+        <activity
+            android:name=".RequestActivity"
+            android:exported="false" />
+
         <activity
             android:name=".MainActivity"
             android:exported="true">
@@ -37,6 +42,8 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+
     </application>
 
 </manifest>
