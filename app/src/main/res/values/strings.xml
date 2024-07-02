@@ -7,9 +7,4 @@
     <string name="Pass">EnterPassword</string>
     <string name="email">Email</string>
     <string name="startsig">Sign Up</string>
-    <string-array name="offer_items">
-    <item>1</item>
-    <item>2</item>
-    <item>3</item>
-    </string-array>
 </resources>
