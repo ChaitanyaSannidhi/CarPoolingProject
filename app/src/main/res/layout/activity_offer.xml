@@ -27,7 +27,7 @@
         android:layout_marginTop="76dp"
 
         android:hint="Starting point"
-        android:textColor="@color/white"
+        android:textColor="@color/black"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.318"
         app:layout_constraintStart_toEndOf="@+id/imageView4"
@@ -41,7 +41,7 @@
         android:layout_marginTop="32dp"
 
         android:hint="Ending point"
-        android:textColor="@color/white"
+        android:textColor="@color/black"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toEndOf="@+id/imageView6"
