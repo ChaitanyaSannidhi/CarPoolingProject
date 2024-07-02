@@ -25,8 +25,9 @@
         android:layout_width="231dp"
         android:layout_height="56dp"
         android:layout_marginTop="76dp"
+
         android:hint="Starting point"
-        android:textColor="@color/white"
+        android:textColor="@color/black"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.318"
         app:layout_constraintStart_toEndOf="@+id/imageView4"
@@ -38,8 +39,9 @@
         android:layout_height="57dp"
         android:layout_marginStart="20dp"
         android:layout_marginTop="32dp"
+
         android:hint="Ending point"
-        android:textColor="@color/white"
+        android:textColor="@color/black"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toEndOf="@+id/imageView6"
@@ -95,6 +97,16 @@
         android:src="@drawable/baseline_airline_seat_recline_normal_24"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageView7" />
+
+    <Spinner
+        android:id="@+id/seatSpinner"
+        android:layout_width="200dp"
+        android:layout_height="48dp"
+        android:layout_marginStart="40dp"
+        android:layout_marginTop="40dp"
+        android:scrollbarSize="100dp"
+        app:layout_constraintStart_toEndOf="@+id/imageView8"
+        app:layout_constraintTop_toBottomOf="@+id/editText2" />
 
 
 
