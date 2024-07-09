@@ -1,7 +1,4 @@
 package com.example.carpooling;
-
-
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
@@ -10,6 +7,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
+
 
 import androidx.activity.EdgeToEdge;
 import androidx.annotation.NonNull;
@@ -39,9 +37,7 @@ public class SignupActivity extends AppCompatActivity {
     private Button registerButton;
     private TextView haveAcc;
     private FirebaseAuth.AuthStateListener authStateListener;
-    private FirebaseUser currentUser;
     private FirebaseFirestore db;
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -65,67 +61,65 @@ public class SignupActivity extends AppCompatActivity {
         passwordEditText = findViewById(R.id.signpass);
         registerButton = findViewById(R.id.button2);
         haveAcc = findViewById(R.id.haveacc);
+
         authStateListener = new FirebaseAuth.AuthStateListener() {
             @Override
             public void onAuthStateChanged(@NonNull FirebaseAuth firebaseAuth) {
-                currentUser = firebaseAuth.getCurrentUser();
-                if(currentUser != null ){
-                    //User Already Logged in
-                    //Intent i = new Intent(getApplicationContext(),DashboardActivity.class);
-                }else{
-                    //No user yet!
+                FirebaseUser currentUser = firebaseAuth.getCurrentUser();
+                if (currentUser != null) {
+                    // User Already Logged in
+                    // Intent i = new Intent(getApplicationContext(), DashboardActivity.class);
+                } else {
+                    // No user yet!
                 }
             }
         };
+
         registerButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(!TextUtils.isEmpty(emailEditText.getText().toString()) &&
-                        !TextUtils.isEmpty(passwordEditText.getText().toString())){
+                if (!TextUtils.isEmpty(emailEditText.getText().toString()) &&
+                        !TextUtils.isEmpty(passwordEditText.getText().toString())) {
                     String email = emailEditText.getText().toString().trim();
                     String password = passwordEditText.getText().toString().trim();
                     String username = usernameEditText.getText().toString().trim();
-                    CreateUserEmailAccount(email,password,username);
-                }else {
+                    createUserEmailAccount(email, password, username);
+                } else {
                     Toast.makeText(SignupActivity.this, "Empty Fields", Toast.LENGTH_SHORT).show();
                 }
             }
         });
+
         // Set up have account text click listener
         haveAcc.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v1) {
                 Toast.makeText(SignupActivity.this, "Working", Toast.LENGTH_SHORT).show();
-                Intent i2 = new Intent(getApplicationContext(), LoginActivity.class);
+                Intent i2 = new Intent(getApplicationContext(), HomeActivity.class);
                 startActivity(i2);
             }
         });
-
     }
 
-    private void CreateUserEmailAccount(String email, String password,final String username) {
+    private void createUserEmailAccount(String email, String password, final String username) {
         registerButton.setEnabled(false);
-        if(!TextUtils.isEmpty(emailEditText.getText().toString()) &&
-                !TextUtils.isEmpty(passwordEditText.getText().toString())){
+        if (!TextUtils.isEmpty(emailEditText.getText().toString()) &&
+                !TextUtils.isEmpty(passwordEditText.getText().toString())) {
             mAuth.createUserWithEmailAndPassword(email, password)
                     .addOnCompleteListener(new OnCompleteListener<AuthResult>() {
                         @Override
                         public void onComplete(@NonNull Task<AuthResult> task) {
-                            if(task.isSuccessful()) {
-                                Intent i = new Intent(getApplicationContext(),LoginActivity.class);
-                                startActivity(i);
-                                finish();
-                                // we take user to Next Activity
-                                assert currentUser != null;
-
-                                if(currentUser != null){
+                            if (task.isSuccessful()) {
+                                // Get current user after successful sign up
+                                FirebaseUser currentUser = mAuth.getCurrentUser();
+                                if (currentUser != null) {
                                     final String currentUserId = currentUser.getUid();
                                     DocumentReference userDocRef = db.collection("Users").document(currentUserId);
-                                    // Create a usermap so we can create a user in the Collection
-                                    Map<String,String> userObj = new HashMap<>();
-                                    userObj.put("email",email);
-                                    userObj.put("username",username);
-                                    //Adding Users to Firestore
+                                    // Create a user map so we can create a user in the Collection
+                                    Map<String, String> userObj = new HashMap<>();
+                                    userObj.put("email", email);
+                                    userObj.put("username", username);
+                                    // Adding Users to Firestore
                                     userDocRef.set(userObj)
                                             .addOnSuccessListener(new OnSuccessListener<Void>() {
                                                 @Override
@@ -148,6 +142,10 @@ public class SignupActivity extends AppCompatActivity {
                                                                     }
                                                                 }
                                                             });
+                                                    // Navigate to login after successful registration
+                                                    Intent i = new Intent(getApplicationContext(), HomeActivity.class);
+                                                    startActivity(i);
+                                                    finish();
                                                 }
                                             }).addOnFailureListener(new OnFailureListener() {
                                                 @Override
@@ -156,29 +154,24 @@ public class SignupActivity extends AppCompatActivity {
                                                     Toast.makeText(SignupActivity.this, "Error setting document data: " + e.getMessage(), Toast.LENGTH_SHORT).show();
                                                 }
                                             });
-
-
                                 }
-
+                            } else {
+                                registerButton.setEnabled(true);
+                                Toast.makeText(SignupActivity.this, "Something went wrong", Toast.LENGTH_SHORT).show();
                             }
                         }
                     }).addOnFailureListener(new OnFailureListener() {
                         @Override
                         public void onFailure(@NonNull Exception e) {
-                            if(e instanceof FirebaseAuthUserCollisionException){
-                                registerButton.setEnabled(true);
+                            registerButton.setEnabled(true);
+                            if (e instanceof FirebaseAuthUserCollisionException) {
                                 emailEditText.setError("Email already exists");
                                 emailEditText.requestFocus();
-                            }else{
-                                registerButton.setEnabled(true);
+                            } else {
                                 Toast.makeText(SignupActivity.this, "Something went wrong", Toast.LENGTH_SHORT).show();
                             }
-                            //Display Failing Message
-
                         }
                     });
         }
-
     }
-
 }
