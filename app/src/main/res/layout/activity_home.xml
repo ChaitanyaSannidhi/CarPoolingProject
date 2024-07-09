@@ -20,7 +20,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.767"
+        app:layout_constraintVertical_bias="0.584"
         tools:ignore="MissingConstraints">
 
     </TextView>
@@ -29,7 +29,7 @@
         android:id="@+id/Requestbutton"
         android:layout_width="214dp"
         android:layout_height="82dp"
-        android:layout_marginTop="12dp"
+        android:layout_marginTop="8dp"
         android:backgroundTint="#8a2be2"
         android:text="Request a Ride"
         android:textSize="20sp"
@@ -57,12 +57,13 @@
         android:layout_height="399dp"
         android:src="@drawable/homepic"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.422"
         app:layout_constraintStart_toStartOf="parent"
-        tools:layout_editor_absoluteY="128dp" />
+        tools:layout_editor_absoluteY="154dp" />
 
     <LinearLayout
-        android:layout_width="404dp"
-        android:layout_height="113dp"
+        android:layout_width="387dp"
+        android:layout_height="115dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent">
@@ -145,11 +146,14 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Profile"
-                android:textAlignment="center"/>
+                android:textAlignment="center">
+
+            </TextView>
 
         </LinearLayout>
 
 
     </LinearLayout>
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
