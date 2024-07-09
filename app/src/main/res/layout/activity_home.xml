@@ -55,7 +55,7 @@
         android:id="@+id/imageView5"
         android:layout_width="295dp"
         android:layout_height="399dp"
-        android:src="@drawable/home_pic"
+        android:src="@drawable/homepic"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         tools:layout_editor_absoluteY="128dp" />
