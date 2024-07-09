@@ -10,17 +10,18 @@
 
     <TextView
         android:id="@+id/textView8"
-        android:layout_width="400dp"
-        android:layout_height="83dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:fontFamily="sans-serif-smallcaps"
         android:text="Welcome"
         android:textColor="#8A2BE2"
         android:textSize="60sp"
         app:layout_constraintBottom_toTopOf="@+id/imageView5"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.842"
-        tools:ignore="MissingConstraints"
-        tools:layout_editor_absoluteX="76dp">
+        app:layout_constraintVertical_bias="0.584"
+        tools:ignore="MissingConstraints">
 
     </TextView>
 
@@ -28,7 +29,8 @@
         android:id="@+id/Requestbutton"
         android:layout_width="214dp"
         android:layout_height="82dp"
-        android:layout_marginTop="14dp"
+        android:layout_marginTop="8dp"
+        android:backgroundTint="#8a2be2"
         android:text="Request a Ride"
         android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -40,7 +42,8 @@
         android:id="@+id/Offerbutton"
         android:layout_width="214dp"
         android:layout_height="82dp"
-        android:layout_marginTop="48dp"
+        android:layout_marginTop="16dp"
+        android:backgroundTint="#8a2be2"
         android:text="Offer a Ride"
         android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -52,11 +55,105 @@
         android:id="@+id/imageView5"
         android:layout_width="295dp"
         android:layout_height="399dp"
-        android:src="@drawable/_951cc3f2_9dc1_46c5_a8d5_1f0f6ce00626_jpeg"
+        android:src="@drawable/homepic"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.413"
+        app:layout_constraintHorizontal_bias="0.422"
         app:layout_constraintStart_toStartOf="parent"
-        tools:layout_editor_absoluteY="178dp" />
+        tools:layout_editor_absoluteY="154dp" />
+
+    <LinearLayout
+        android:layout_width="387dp"
+        android:layout_height="115dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="10dp">
+
+            <ImageView
+                android:id="@+id/homebtn"
+                android:layout_width="59dp"
+                android:layout_height="61dp"
+                android:layout_margin="8dp"
+                android:scaleType="centerCrop"
+                android:src="@drawable/baseline_home_24" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Home"
+                android:textAlignment="center" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="10dp">
+
+            <ImageView
+                android:layout_width="59dp"
+                android:layout_height="61dp"
+                android:layout_margin="8dp"
+                android:scaleType="centerCrop"
+                android:src="@drawable/carance__3_" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Your Rides"
+                android:textAlignment="center" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="10dp">
+
+            <ImageView
+                android:layout_width="59dp"
+                android:layout_height="61dp"
+                android:layout_margin="8dp"
+                android:scaleType="centerCrop"
+                android:src="@drawable/baseline_message_24" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Inbox"
+                android:textAlignment="center" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="10dp">
+
+            <ImageView
+                android:layout_width="59dp"
+                android:layout_height="61dp"
+                android:layout_margin="8dp"
+                android:scaleType="centerCrop"
+                android:src="@drawable/baseline_account_circle_24" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Profile"
+                android:textAlignment="center">
+
+            </TextView>
+
+        </LinearLayout>
+
+
+    </LinearLayout>
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
