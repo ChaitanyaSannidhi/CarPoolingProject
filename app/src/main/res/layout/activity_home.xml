@@ -80,7 +80,7 @@
                 android:layout_height="61dp"
                 android:layout_margin="8dp"
                 android:scaleType="centerCrop"
-                android:src="@drawable/baseline_home_24" />
+                android:src="@drawable/home" />
 
             <TextView
                 android:layout_width="match_parent"
@@ -100,7 +100,7 @@
                 android:layout_height="61dp"
                 android:layout_margin="8dp"
                 android:scaleType="centerCrop"
-                android:src="@drawable/carance__4_" />
+                android:src="@drawable/logo" />
 
             <TextView
                 android:layout_width="match_parent"
@@ -120,7 +120,7 @@
                 android:layout_height="61dp"
                 android:layout_margin="8dp"
                 android:scaleType="centerCrop"
-                android:src="@drawable/baseline_message_24" />
+                android:src="@drawable/inbox" />
 
             <TextView
                 android:layout_width="match_parent"
@@ -136,11 +136,12 @@
             android:padding="15dp">
 
             <ImageView
+                android:id="@+id/profilebutton"
                 android:layout_width="59dp"
                 android:layout_height="61dp"
                 android:layout_margin="8dp"
                 android:scaleType="centerCrop"
-                android:src="@drawable/baseline_account_circle_24" />
+                android:src="@drawable/account" />
 
             <TextView
                 android:layout_width="match_parent"

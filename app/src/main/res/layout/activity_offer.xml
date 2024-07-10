@@ -5,151 +5,235 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#8a2be2"
-    tools:context=".MainActivity">
+    tools:context=".OfferActivity">
+
     <TextView
         android:id="@+id/textView3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="172dp"
+        android:layout_marginTop="16dp"
         android:text="Offer a Ride"
-        android:textColor="@color/white"
+        android:textColor="#8a2be2"
         android:textSize="50sp"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.496"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+    <ImageView
+        android:id="@+id/imageView6"
+        android:layout_width="321dp"
+        android:layout_height="321dp"
         android:layout_margin="16dp"
-        app:layout_constraintTop_toBottomOf="@+id/textView3"
-        android:background="@drawable/rounded_corners"
+        android:layout_marginTop="12dp"
+        android:src="@drawable/offerpic"
         app:layout_constraintEnd_toEndOf="parent"
-        tools:layout_editor_absoluteY="306dp">
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView3" />
 
-        <androidx.constraintlayout.widget.ConstraintLayout
+    <LinearLayout
+        android:id="@+id/linearLayout2"
+        android:layout_width="375dp"
+        android:layout_height="260dp"
+        android:layout_margin="16dp"
+        android:background="@drawable/rounded_corners"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toTopOf="@+id/linearLayout7"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView6">
+
+        <LinearLayout
+            android:id="@+id/linearstart"
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="wrap_content"
+            android:layout_margin="8dp"
+            android:orientation="horizontal">
 
-            <LinearLayout
-                android:id="@+id/linearstart"
+            <ImageView
+                android:id="@+id/imageView4"
+                android:layout_width="34dp"
+                android:layout_height="34dp"
+                android:layout_margin="8dp"
+                android:src="@drawable/location" />
+
+            <EditText
+                android:id="@+id/editstart"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:hint="Starting point"
+                android:textColor="@color/black"
+                android:textSize="20sp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/lineardes"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="8dp"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:id="@+id/endloc"
+                android:layout_width="34dp"
+                android:layout_height="34dp"
                 android:layout_margin="8dp"
+                android:src="@drawable/location" />
+
+            <EditText
+                android:id="@+id/editend"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Destination point"
+                android:textColor="@color/black"
+                android:textSize="20sp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/lineardate"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="8dp"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:id="@+id/imageView7"
+                android:layout_width="34dp"
+                android:layout_height="34dp"
+                android:layout_margin="8dp"
+                android:src="@drawable/baseline_calendar_month_24" />
+
+            <TextView
+                android:id="@+id/dateText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
                 android:layout_marginStart="8dp"
-                android:layout_marginTop="40dp"
-                app:layout_constraintBottom_toTopOf="@+id/lineardes"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0.0">
+                android:text="Date"
+                android:textColor="@color/black"
+                android:textSize="20sp" />
 
-                <ImageView
-                    android:id="@+id/imageView4"
-                    android:layout_width="68dp"
-                    android:layout_height="58dp"
-                    android:layout_margin="8dp"
-                    android:src="@drawable/baseline_location_on_24"
-
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
-
-                <EditText
-                    android:id="@+id/editstart"
-                    android:layout_width="match_parent"
-                    android:layout_height="48dp"
-                    android:hint="Starting point"
-                    android:textColor="@color/black"
-                    app:layout_constraintStart_toEndOf="@+id/imageView4"
-                    app:layout_constraintTop_toTopOf="@+id/imageView4" />
-            </LinearLayout>
-
-            <LinearLayout
-                android:id="@+id/lineardes"
-                android:layout_width="match_parent"
+            <CalendarView
+                android:id="@+id/calendarView"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-
-
-                android:layout_margin="8dp"
                 android:layout_marginStart="8dp"
-                android:layout_marginBottom="20dp"
-                app:layout_constraintBottom_toTopOf="@+id/lineardate"
-                app:layout_constraintStart_toStartOf="parent">
+                android:visibility="gone" />
+        </LinearLayout>
 
-                <ImageView
-                    android:id="@+id/endloc"
-                    android:layout_width="68dp"
-                    android:layout_height="58dp"
-                    android:layout_margin="8dp"
-                    android:src="@drawable/baseline_location_on_24" />
+        <LinearLayout
+            android:id="@+id/Layoutseat"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="8dp"
+            android:orientation="horizontal">
 
-                <EditText
-                    android:id="@+id/editend"
-                    android:layout_width="match_parent"
-                    android:layout_height="48dp"
-                    android:hint="Destination point"
-                    android:textColor="@color/black"
-                    app:layout_constraintStart_toEndOf="@+id/imageView4"
-                    app:layout_constraintTop_toTopOf="@+id/imageView4" />
-            </LinearLayout>
-
-            <LinearLayout
-                android:id="@+id/lineardate"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+            <ImageView
+                android:id="@+id/imageView8"
+                android:layout_width="34dp"
+                android:layout_height="34dp"
                 android:layout_margin="8dp"
-                app:layout_constraintBottom_toTopOf="@+id/Layoutseat"
-                app:layout_constraintStart_toStartOf="parent"
-                tools:layout_editor_absoluteY="205dp">
+                android:src="@drawable/baseline_airline_seat_recline_normal_24" />
 
-                <ImageView
-                    android:id="@+id/imageView7"
-                    android:layout_width="68dp"
-                    android:layout_height="58dp"
-                    android:layout_margin="8dp"
-                    android:src="@drawable/baseline_calendar_month_24" />
-
-                <EditText
-                    android:id="@+id/editText2"
-                    android:layout_width="match_parent"
-                    android:layout_height="48dp"
-                    android:hint="Date" />
-            </LinearLayout>
-
-            <LinearLayout
-                android:id="@+id/Layoutseat"
+            <Spinner
+                android:id="@+id/seatSpinner"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_margin="8dp"
-                android:layout_marginTop="52dp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/lineardate">
-
-                <ImageView
-                    android:id="@+id/imageView8"
-                    android:layout_width="68dp"
-                    android:layout_height="58dp"
-                    android:layout_margin="8dp"
-                    android:src="@drawable/baseline_airline_seat_recline_normal_24" />
-
-                <Spinner
-                    android:id="@+id/seatSpinner"
-                    android:layout_width="match_parent"
-                    android:layout_height="48dp"
-                    android:layout_marginStart="4dp"
-                    android:layout_marginTop="12dp"
-                    android:scrollbarSize="100dp" />
-
-
-            </LinearLayout>
-
-
-        </androidx.constraintlayout.widget.ConstraintLayout>
-
+                android:layout_height="48dp"
+                android:layout_marginStart="4dp"
+                android:scrollbarSize="100dp" />
+        </LinearLayout>
     </LinearLayout>
 
+    <LinearLayout
+        android:id="@+id/linearLayout7"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="16dp"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
 
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="10dp">
 
+            <ImageView
+                android:id="@+id/homebutton"
+                android:layout_width="59dp"
+                android:layout_height="61dp"
+                android:layout_margin="8dp"
+                android:scaleType="centerCrop"
+                android:src="@drawable/home" />
 
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Home"
+                android:textAlignment="center" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="10dp">
+
+            <ImageView
+                android:layout_width="59dp"
+                android:layout_height="61dp"
+                android:layout_margin="8dp"
+                android:scaleType="centerCrop"
+                android:src="@drawable/logo" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Your Rides"
+                android:textAlignment="center" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="10dp">
+
+            <ImageView
+                android:layout_width="59dp"
+                android:layout_height="61dp"
+                android:layout_margin="8dp"
+                android:scaleType="centerCrop"
+                android:src="@drawable/inbox" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Inbox"
+                android:textAlignment="center" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="10dp">
+
+            <ImageView
+                android:id="@+id/profilebutton"
+                android:layout_width="59dp"
+                android:layout_height="61dp"
+                android:layout_margin="8dp"
+                android:scaleType="centerCrop"
+                android:src="@drawable/account" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Profile"
+                android:textAlignment="center" />
+        </LinearLayout>
+    </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
