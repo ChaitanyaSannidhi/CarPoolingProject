@@ -49,4 +49,5 @@ dependencies {
     implementation ("com.google.firebase:firebase-firestore:23.0.0")
     // Google Play services
     implementation("com.google.android.gms:play-services-auth:20.1.0")
+
 }

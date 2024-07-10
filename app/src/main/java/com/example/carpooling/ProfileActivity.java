@@ -24,7 +24,7 @@ public class ProfileActivity extends AppCompatActivity {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
         });
-        ImageView btn1 = findViewById(R.id.homebutton);
+        ImageView btn1 = findViewById(R.id.homebtn);
         btn1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v2) {
