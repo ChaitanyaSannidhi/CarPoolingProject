@@ -229,7 +229,7 @@
                 android:layout_height="61dp"
                 android:layout_margin="8dp"
                 android:scaleType="centerCrop"
-                android:src="@drawable/baseline_home_24" />
+                android:src="@drawable/home" />
 
             <TextView
                 android:layout_width="match_parent"
@@ -269,7 +269,7 @@
                 android:layout_height="61dp"
                 android:layout_margin="8dp"
                 android:scaleType="centerCrop"
-                android:src="@drawable/baseline_message_24" />
+                android:src="@drawable/inbox" />
 
             <TextView
                 android:layout_width="match_parent"
@@ -289,12 +289,12 @@
                 android:layout_height="61dp"
                 android:layout_margin="8dp"
                 android:scaleType="centerCrop"
-                android:src="@drawable/baseline_account_circle_24" />
+                android:src="@drawable/account" />
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Profile"
+                android:text="You"
                 android:textAlignment="center">
 
             </TextView>
