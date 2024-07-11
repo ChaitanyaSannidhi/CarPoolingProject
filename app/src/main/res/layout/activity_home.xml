@@ -12,15 +12,15 @@
         android:id="@+id/textView8"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="120dp"
         android:fontFamily="sans-serif-smallcaps"
         android:text="Welcome"
         android:textColor="#8A2BE2"
         android:textSize="60sp"
+        app:layout_constraintBottom_toTopOf="@+id/imageView5"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.439"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.584"
         tools:ignore="MissingConstraints">
 
     </TextView>
@@ -29,20 +29,20 @@
         android:id="@+id/Requestbutton"
         android:layout_width="214dp"
         android:layout_height="82dp"
-        android:layout_marginBottom="68dp"
+        android:layout_marginTop="8dp"
         android:backgroundTint="#8a2be2"
         android:text="Request a Ride"
         android:textSize="20sp"
-        app:layout_constraintBottom_toTopOf="@+id/linearLayout2"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.497"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/Offerbutton" />
 
     <Button
         android:id="@+id/Offerbutton"
         android:layout_width="214dp"
         android:layout_height="82dp"
-        android:layout_marginTop="24dp"
+        android:layout_marginTop="16dp"
         android:backgroundTint="#8a2be2"
         android:text="Offer a Ride"
         android:textSize="20sp"
@@ -53,29 +53,26 @@
 
     <ImageView
         android:id="@+id/imageView5"
-        android:layout_width="344dp"
-        android:layout_height="286dp"
+        android:layout_width="295dp"
+        android:layout_height="399dp"
         android:src="@drawable/homepic"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.492"
+        app:layout_constraintHorizontal_bias="0.422"
         app:layout_constraintStart_toStartOf="parent"
-        tools:layout_editor_absoluteY="212dp" />
+        tools:layout_editor_absoluteY="154dp" />
 
     <LinearLayout
-        android:id="@+id/linearLayout2"
-        android:layout_width="405dp"
-        android:layout_height="118dp"
-        android:layout_marginBottom="4dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent">
 
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            android:padding="12dp">
+            android:padding="15dp">
 
             <ImageView
                 android:id="@+id/homebtn"
@@ -96,14 +93,14 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            android:padding="12dp">
+            android:padding="15dp">
 
             <ImageView
-                android:layout_width="64dp"
+                android:layout_width="59dp"
                 android:layout_height="61dp"
                 android:layout_margin="8dp"
                 android:scaleType="centerCrop"
-                android:src="@drawable/logo_" />
+                android:src="@drawable/logo" />
 
             <TextView
                 android:layout_width="match_parent"
@@ -116,7 +113,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            android:padding="12dp">
+            android:padding="15dp">
 
             <ImageView
                 android:layout_width="59dp"
@@ -136,9 +133,10 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            android:padding="12dp">
+            android:padding="15dp">
 
             <ImageView
+                android:id="@+id/profilebutton"
                 android:layout_width="59dp"
                 android:layout_height="61dp"
                 android:layout_margin="8dp"

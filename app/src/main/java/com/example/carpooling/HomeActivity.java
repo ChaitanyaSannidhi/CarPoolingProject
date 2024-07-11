@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
@@ -40,6 +41,15 @@ public class HomeActivity extends AppCompatActivity {
                 Toast.makeText(HomeActivity.this, "Working", Toast.LENGTH_SHORT).show();
                 Intent i2 = new Intent(getApplicationContext(), RequestActivity.class);
                 startActivity(i2);
+            }
+        });
+        ImageView btn3 = findViewById(R.id.profilebutton);
+        btn3.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v3) {
+                Toast.makeText(HomeActivity.this, "Working", Toast.LENGTH_SHORT).show();
+                Intent i3 = new Intent(getApplicationContext(), ProfileActivity.class);
+                startActivity(i3);
             }
         });
     }

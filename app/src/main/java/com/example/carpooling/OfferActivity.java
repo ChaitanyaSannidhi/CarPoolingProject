@@ -1,5 +1,6 @@
 package com.example.carpooling;
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.activity.EdgeToEdge;
@@ -10,14 +11,12 @@ import androidx.core.view.WindowInsetsCompat;
 
 import android.view.View;
 import android.widget.ArrayAdapter;
-import android.widget.CalendarView;
+import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.Spinner;
-import android.widget.TextView;
+import android.widget.Toast;
 
 public class OfferActivity extends AppCompatActivity {
-    private CalendarView calendarView;
-    private TextView dateTextView;
-    private Spinner spinner;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,30 +38,27 @@ public class OfferActivity extends AppCompatActivity {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
         });
-        // Initialize TextView
-        dateTextView = findViewById(R.id.dateTextView);
-        dateTextView.setOnClickListener(new View.OnClickListener() {
+
+        ImageView btn1 = findViewById(R.id.homebutton);
+        btn1.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v) {
-                if (calendarView.getVisibility() == View.GONE) {
-                    calendarView.setVisibility(View.VISIBLE);
-                } else {
-                    calendarView.setVisibility(View.GONE);
-                }
+            public void onClick(View v1) {
+                Toast.makeText(OfferActivity.this, "Working", Toast.LENGTH_SHORT).show();
+                Intent i2 = new Intent(getApplicationContext(), HomeActivity.class);
+                startActivity(i2);
             }
         });
 
-        // Initialize CalendarView
-        calendarView = findViewById(R.id.calendarView);
-        calendarView.setOnDateChangeListener(new CalendarView.OnDateChangeListener() {
+        ImageView btn2 = findViewById(R.id.profilebutton);
+        btn2.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onSelectedDayChange(CalendarView view, int year, int month, int dayOfMonth) {
-                String selectedDate = dayOfMonth + "/" + (month + 1) + "/" + year;
-                dateTextView.setText(selectedDate);
-                calendarView.setVisibility(View.GONE);  // Hide the calendar after selecting a date
+            public void onClick(View v2) {
+                Toast.makeText(OfferActivity.this, "Working", Toast.LENGTH_SHORT).show();
+                Intent i3 = new Intent(getApplicationContext(), ProfileActivity.class);
+                startActivity(i3);
             }
         });
+
     }
-
 }
 //hiiii
