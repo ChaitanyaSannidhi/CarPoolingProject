@@ -4,8 +4,9 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/main"
     android:layout_width="match_parent"
+    android:background="@color/white"
     android:layout_height="match_parent"
-    android:background="#8a2be2"
+
     tools:context=".MainActivity">
 
     <TextView
@@ -14,26 +15,28 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="32dp"
         android:text="Request a Ride"
-        android:textColor="@color/white"
+        android:textColor="#8a2be2"
         android:textSize="30sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
+    <ImageView
+        android:layout_width="297dp"
+        android:layout_height="282dp"
+        android:src="@drawable/img_20240711_002027_165"
+        tools:layout_editor_absoluteX="57dp"
+        tools:layout_editor_absoluteY="107dp" />
+
     <LinearLayout
-        android:id="@+id/linearLayout8"
-        android:layout_width="388dp"
-        android:layout_height="334dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
         android:layout_margin="16dp"
-        android:layout_marginTop="16dp"
         android:background="@drawable/rounded_corners"
         android:orientation="vertical"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/reqhead"
-        app:layout_constraintVertical_bias="0.324">
+        tools:layout_editor_absoluteY="415dp">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -116,29 +119,21 @@
                 android:scrollbarSize="100dp" />
         </LinearLayout>
     </LinearLayout>
-
     <LinearLayout
-        android:id="@+id/linearLayout7"
-        android:layout_width="413dp"
-        android:layout_height="146dp"
-        android:layout_marginBottom="16dp"
-        android:background="@color/white"
-        android:orientation="horizontal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/linearLayout8"
-        app:layout_constraintVertical_bias="1.0">
+        app:layout_constraintStart_toStartOf="parent">
 
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            android:padding="10dp">
+            android:padding="15dp">
 
             <ImageView
-                android:id="@+id/homebutton"
+                android:id="@+id/homebtn"
                 android:layout_width="59dp"
                 android:layout_height="61dp"
                 android:layout_margin="8dp"
@@ -156,7 +151,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            android:padding="10dp">
+            android:padding="15dp">
 
             <ImageView
                 android:layout_width="59dp"
@@ -176,7 +171,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            android:padding="10dp">
+            android:padding="15dp">
 
             <ImageView
                 android:layout_width="59dp"
@@ -196,7 +191,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            android:padding="10dp">
+            android:padding="15dp">
 
             <ImageView
                 android:id="@+id/profilebutton"
@@ -210,8 +205,12 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Profile"
-                android:textAlignment="center" />
-        </LinearLayout>
-    </LinearLayout>
+                android:textAlignment="center">
 
+            </TextView>
+
+        </LinearLayout>
+
+
+    </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
