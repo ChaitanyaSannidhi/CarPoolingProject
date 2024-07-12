@@ -150,7 +150,7 @@
             android:layout_width="152dp"
             android:layout_height="162dp"
             android:layout_gravity="center"
-            android:background="@drawable/circularshape"
+            android:background="@drawable/profile"
             android:contentDescription="Profile Picture"
             android:scaleType="centerCrop"
 
@@ -169,6 +169,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
                 android:text="Add /Edit Profile picture"
+                android:textColor="@color/black"
                 android:textSize="16sp" />
         </LinearLayout>
 
@@ -182,10 +183,12 @@
             android:padding="8dp">
 
             <TextView
+                android:id="@+id/personaldetails"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
                 android:text="Edit Personal Details"
+                android:textColor="@color/black"
                 android:textSize="16sp" />
         </LinearLayout>
 
@@ -256,6 +259,7 @@
             android:padding="10dp">
 
             <ImageView
+                android:id="@+id/inboxbutton"
                 android:layout_width="59dp"
                 android:layout_height="61dp"
                 android:layout_margin="8dp"

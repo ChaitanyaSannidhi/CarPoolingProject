@@ -52,5 +52,14 @@ public class HomeActivity extends AppCompatActivity {
                 startActivity(i3);
             }
         });
+        ImageView btn4 = findViewById(R.id.inboxbutton);
+        btn4.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v4) {
+                Toast.makeText(HomeActivity.this, "Working", Toast.LENGTH_SHORT).show();
+                Intent i4 = new Intent(getApplicationContext(), InboxActivity.class);
+                startActivity(i4);
+            }
+        });
     }
 }
