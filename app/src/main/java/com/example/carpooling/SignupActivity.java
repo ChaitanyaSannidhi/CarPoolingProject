@@ -5,9 +5,10 @@ import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
-
+import android.util.Log;
 
 import androidx.activity.EdgeToEdge;
 import androidx.annotation.NonNull;
@@ -30,6 +31,15 @@ import com.google.firebase.firestore.FirebaseFirestore;
 
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Objects;
+
+
+import com.google.android.gms.auth.api.signin.GoogleSignIn;
+import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
+import com.google.android.gms.auth.api.signin.GoogleSignInClient;
+import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
+import com.google.android.gms.common.api.ApiException;
+
 
 public class SignupActivity extends AppCompatActivity {
     private FirebaseAuth mAuth;
@@ -38,6 +48,8 @@ public class SignupActivity extends AppCompatActivity {
     private TextView haveAcc;
     private FirebaseAuth.AuthStateListener authStateListener;
     private FirebaseFirestore db;
+    private static final int RC_SIGN_IN = 9001;
+    private GoogleSignInClient mGoogleSignInClient;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -172,6 +184,14 @@ public class SignupActivity extends AppCompatActivity {
                             }
                         }
                     });
+
+
         }
+        
+
     }
 }
+
+
+
+
