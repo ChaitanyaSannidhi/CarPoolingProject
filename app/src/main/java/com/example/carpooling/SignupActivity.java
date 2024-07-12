@@ -42,6 +42,8 @@ import com.google.android.gms.common.api.ApiException;
 
 
 public class SignupActivity extends AppCompatActivity {
+    private PreferenceManager preferenceManager;
+
     private FirebaseAuth mAuth;
     private EditText usernameEditText, emailEditText, passwordEditText;
     private Button registerButton;
@@ -56,7 +58,20 @@ public class SignupActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         EdgeToEdge.enable(this);
         setContentView(R.layout.activity_signup);
+        preferenceManager = new PreferenceManager(this);
 
+        Button signupButton = findViewById(R.id.button2);
+        signupButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // Handle signup logic here
+
+                // After successful signup
+                preferenceManager.setLoggedIn(true);
+                startActivity(new Intent(SignupActivity.this, HomeActivity.class));
+                finish();
+            }
+        });
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.signuphead), (v, insets) -> {
             Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);

@@ -35,12 +35,40 @@ public class LoginActivity extends AppCompatActivity {
     private Button loginButton;
     private TextView noAcc, forgotPassword;
     private FirebaseFirestore db;
+    private PreferenceManager preferenceManager;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         EdgeToEdge.enable(this);
         setContentView(R.layout.activity_login);
+        preferenceManager = new PreferenceManager(this);
+        Button loginButton = findViewById(R.id.logbtn);
+        loginButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // Handle login logic here
+                // After successful login
+                preferenceManager.setLoggedIn(true);
+                startActivity(new Intent(LoginActivity.this, HomeActivity.class));
+                finish();
+            }
+        });
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
             Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
