@@ -11,8 +11,10 @@ import androidx.core.view.WindowInsetsCompat;
 
 import android.view.View;
 import android.widget.ArrayAdapter;
+import android.widget.CalendarView;
 import android.widget.ImageView;
 import android.widget.Spinner;
+import android.widget.TextView;
 import android.widget.Toast;
 
 public class RequestActivity extends AppCompatActivity {
@@ -55,6 +57,37 @@ public class RequestActivity extends AppCompatActivity {
                 Toast.makeText(RequestActivity.this, "Working", Toast.LENGTH_SHORT).show();
                 Intent i3 = new Intent(getApplicationContext(), ProfileActivity.class);
                 startActivity(i3);
+            }
+        });
+        ImageView btn3 = findViewById(R.id.inboxbutton);
+        btn3.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v2) {
+                Toast.makeText(RequestActivity.this, "Working", Toast.LENGTH_SHORT).show();
+                Intent i4 = new Intent(getApplicationContext(), InboxActivity.class);
+                startActivity(i4);
+            }
+        });
+        TextView dateText = findViewById(R.id.dateText);
+        CalendarView calendarView = findViewById(R.id.calendarView);
+
+        dateText.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (calendarView.getVisibility() == View.GONE) {
+                    calendarView.setVisibility(View.VISIBLE);
+                } else {
+                    calendarView.setVisibility(View.GONE);
+                }
+            }
+        });
+
+        calendarView.setOnDateChangeListener(new CalendarView.OnDateChangeListener() {
+            @Override
+            public void onSelectedDayChange(CalendarView view, int year, int month, int dayOfMonth) {
+                String selectedDate = dayOfMonth + "/" + (month + 1) + "/" + year;
+                dateText.setText(selectedDate);
+                calendarView.setVisibility(View.GONE);
             }
         });
 

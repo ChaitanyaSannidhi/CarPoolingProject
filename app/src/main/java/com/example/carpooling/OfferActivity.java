@@ -11,9 +11,10 @@ import androidx.core.view.WindowInsetsCompat;
 
 import android.view.View;
 import android.widget.ArrayAdapter;
-import android.widget.Button;
+import android.widget.CalendarView;
 import android.widget.ImageView;
 import android.widget.Spinner;
+import android.widget.TextView;
 import android.widget.Toast;
 
 public class OfferActivity extends AppCompatActivity {
@@ -23,6 +24,7 @@ public class OfferActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         EdgeToEdge.enable(this);
         setContentView(R.layout.activity_offer);
+
         Spinner seatSpinner = findViewById(R.id.seatSpinner);
         // Create an ArrayAdapter using the string array and a default spinner layout
         ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this,
@@ -59,6 +61,38 @@ public class OfferActivity extends AppCompatActivity {
             }
         });
 
+        ImageView btn4 = findViewById(R.id.inboxbutton);
+        btn4.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v3) {
+                Toast.makeText(OfferActivity.this, "Working", Toast.LENGTH_SHORT).show();
+                Intent i4 = new Intent(getApplicationContext(), InboxActivity.class);
+                startActivity(i4);
+            }
+        });
+
+        // Date selection logic
+        TextView dateText = findViewById(R.id.dateText);
+        CalendarView calendarView = findViewById(R.id.calendarView);
+
+        dateText.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (calendarView.getVisibility() == View.GONE) {
+                    calendarView.setVisibility(View.VISIBLE);
+                } else {
+                    calendarView.setVisibility(View.GONE);
+                }
+            }
+        });
+
+        calendarView.setOnDateChangeListener(new CalendarView.OnDateChangeListener() {
+            @Override
+            public void onSelectedDayChange(CalendarView view, int year, int month, int dayOfMonth) {
+                String selectedDate = dayOfMonth + "/" + (month + 1) + "/" + year;
+                dateText.setText(selectedDate);
+                calendarView.setVisibility(View.GONE);
+            }
+        });
     }
 }
-//hiiii

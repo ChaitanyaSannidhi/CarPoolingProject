@@ -19,5 +19,11 @@
         <item>9</item>
         <item>10</item>
     </string-array>
-
+    <string-array name="country_codes">
+        <item>+1 (USA)</item>
+        <item>+91 (India)</item>
+        <item>+44 (UK)</item>
+        <item>+61 (Australia)</item>
+        <!-- Add more country codes as needed -->
+    </string-array>
 </resources>
