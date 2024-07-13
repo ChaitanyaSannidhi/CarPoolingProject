@@ -26,4 +26,7 @@
         <item>+61 (Australia)</item>
         <!-- Add more country codes as needed -->
     </string-array>
+    <string name="default_web_client_id">557898103141-vd5m345sfnv7hpoqcni84c6u6g8h9pka.apps.googleusercontent.com</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>

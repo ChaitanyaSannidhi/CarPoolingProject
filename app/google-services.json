@@ -12,7 +12,20 @@
           "package_name": "com.example.carpooling"
         }
       },
-      "oauth_client": [],
+      "oauth_client": [
+        {
+          "client_id": "557898103141-g3nhih1h68150f2lhkuhls1fenrmaf94.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.carpooling",
+            "certificate_hash": "9c9cbb312f0d9526f56eff73177bf59c4d357284"
+          }
+        },
+        {
+          "client_id": "557898103141-vd5m345sfnv7hpoqcni84c6u6g8h9pka.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
       "api_key": [
         {
           "current_key": "AIzaSyCqEL_-Al_U0vpR2VRFgs5GwDWAODpYyiA"
@@ -20,7 +33,12 @@
       ],
       "services": {
         "appinvite_service": {
-          "other_platform_oauth_client": []
+          "other_platform_oauth_client": [
+            {
+              "client_id": "557898103141-vd5m345sfnv7hpoqcni84c6u6g8h9pka.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
         }
       }
     }
