@@ -17,6 +17,7 @@ import androidx.core.view.WindowInsetsCompat;
 
 public class ProfileActivity extends AppCompatActivity {
     private TextView edit_text;
+    private TextView verify_id;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -28,6 +29,7 @@ public class ProfileActivity extends AppCompatActivity {
             return insets;
         });
         edit_text=findViewById(R.id.personaldetails);
+        verify_id=findViewById(R.id.verifyid);
 
         ImageView btn1 = findViewById(R.id.homebtn);
         btn1.setOnClickListener(new View.OnClickListener() {
@@ -42,6 +44,13 @@ public class ProfileActivity extends AppCompatActivity {
             public void onClick(View v1) {
                 Intent i4 = new Intent(getApplicationContext(), PersonalActivity.class);
                 startActivity(i4);
+            }
+        });
+        verify_id.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v3) {
+                Intent i5 = new Intent(getApplicationContext(), VerifyidActivity.class);
+                startActivity(i5);
             }
         });
 

@@ -111,6 +111,7 @@
                 android:src="@drawable/baseline_add_circle_outline_24" />
 
             <TextView
+                android:id="@+id/verifyid"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
