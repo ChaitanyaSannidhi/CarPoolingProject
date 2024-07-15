@@ -50,9 +50,7 @@ public class LoginActivity extends AppCompatActivity {
             public void onClick(View v) {
                 // Handle login logic here
                 // After successful login
-                preferenceManager.setLoggedIn(true);
-                startActivity(new Intent(LoginActivity.this, HomeActivity.class));
-                finish();
+
             }
         });
 
@@ -125,6 +123,9 @@ public class LoginActivity extends AppCompatActivity {
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if (task.isSuccessful()) {
                             FirebaseUser user = mAuth.getCurrentUser();
+                            preferenceManager.setLoggedIn(true);
+                            startActivity(new Intent(LoginActivity.this, HomeActivity.class));
+                            finish();
                             if (user != null) {
                                 fetchUserData(user.getUid());
                             }

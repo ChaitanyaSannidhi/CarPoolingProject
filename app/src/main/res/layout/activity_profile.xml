@@ -3,7 +3,9 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
+
     android:layout_height="match_parent"
+
     android:background="#F2F0F6">
 
     <LinearLayout
@@ -141,6 +143,7 @@
         app:layout_constraintBottom_toTopOf="@+id/linearLayout"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
+
         app:layout_constraintVertical_bias="0.0">
 
         <!-- Name -->
@@ -151,7 +154,7 @@
             android:layout_width="152dp"
             android:layout_height="162dp"
             android:layout_gravity="center"
-            android:background="@drawable/profile"
+            android:background="@drawable/account"
             android:contentDescription="Profile Picture"
             android:scaleType="centerCrop"
 
