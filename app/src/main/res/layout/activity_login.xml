@@ -113,6 +113,7 @@
         android:layout_marginTop="32dp"
         android:text="Login"
         android:textSize="23sp"
+        android:backgroundTint="#8a2be2"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.492"
         app:layout_constraintStart_toStartOf="parent"

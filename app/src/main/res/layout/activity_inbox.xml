@@ -6,6 +6,7 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/white"
     tools:context=".InboxActivity">
 
     <RelativeLayout
@@ -40,7 +41,7 @@
                 android:layout_centerVertical="true"
                 android:layout_marginStart="16dp"
                 android:background="?android:attr/selectableItemBackground"
-                android:src="@drawable/profile" />
+                android:src="@drawable/account" />
 
             <TextView
                 android:id="@+id/message_sender"

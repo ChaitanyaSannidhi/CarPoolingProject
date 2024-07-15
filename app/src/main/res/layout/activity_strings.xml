@@ -8,4 +8,4 @@
     android:layout_height="match_parent"
     tools:context=".strings">
 
-  </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

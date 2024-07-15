@@ -1,6 +1,9 @@
 package com.example.carpooling;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.widget.ImageView;
+import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
@@ -19,6 +22,12 @@ public class VerifyidActivity extends AppCompatActivity {
             Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
+        });
+        ImageView btn1 = findViewById(R.id.backarrow);
+        btn1.setOnClickListener(v1 -> {
+            Toast.makeText(VerifyidActivity.this, "Working", Toast.LENGTH_SHORT).show();
+            Intent i2 = new Intent(getApplicationContext(), ProfileActivity.class);
+            startActivity(i2);
         });
     }
 }

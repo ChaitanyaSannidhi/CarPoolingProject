@@ -13,11 +13,17 @@ import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
 public class MainActivity extends AppCompatActivity {
+    private PreferenceManager preferenceManager;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         EdgeToEdge.enable(this);
         setContentView(R.layout.activity_main);
+        if(preferenceManager.isLoggedIn()){
+            Intent i = new Intent(this, HomeActivity.class);
+            startActivity(i);
+            finish();
+        }
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
             Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
@@ -41,7 +47,7 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(i2);
             }
         });
-    //adding contributor
+        //adding contributor
 
     }
 }
