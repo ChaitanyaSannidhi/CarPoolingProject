@@ -3,3 +3,4 @@
     <corners android:radius="32dp"/>
     <solid android:color="#FFFFFF"/> <!-- Change this color to whatever you need -->
 </shape>
+    <!--//shines>

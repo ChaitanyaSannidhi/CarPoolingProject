@@ -18,4 +18,4 @@
         app:headerLayout="@layout/header"
         app:menu="@menu/menu_main" />
 </androidx.drawerlayout.widget.DrawerLayout>
-<!--//shine>
+<!--//shines>
