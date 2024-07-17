@@ -7,7 +7,6 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.Toast;
 
-import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
@@ -18,48 +17,42 @@ public class HomeActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        EdgeToEdge.enable(this);
+        // Ensure EdgeToEdge utility is correctly implemented or remove the line if unnecessary
+        // EdgeToEdge.enable(this);
         setContentView(R.layout.activity_home);
+
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
             Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
         });
-        Button btn2 = findViewById(R.id.Offerbutton);
-        btn2.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v2) {
-                Toast.makeText(HomeActivity.this, "Working", Toast.LENGTH_SHORT).show();
-                Intent i2 = new Intent(getApplicationContext(), OfferActivity.class);
-                startActivity(i2);
-            }
+
+        Button btnOffer = findViewById(R.id.Offerbutton);
+        btnOffer.setOnClickListener(v -> {
+            Toast.makeText(HomeActivity.this, "Offer Button Clicked", Toast.LENGTH_SHORT).show();
+            Intent offerIntent = new Intent(getApplicationContext(), OfferActivity.class);
+            startActivity(offerIntent);
         });
-        Button btn1 = findViewById(R.id.Requestbutton);
-        btn1.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v2) {
-                Toast.makeText(HomeActivity.this, "Working", Toast.LENGTH_SHORT).show();
-                Intent i2 = new Intent(getApplicationContext(), RequestActivity.class);
-                startActivity(i2);
-            }
+
+        Button btnRequest = findViewById(R.id.Requestbutton);
+        btnRequest.setOnClickListener(v -> {
+            Toast.makeText(HomeActivity.this, "Request Button Clicked", Toast.LENGTH_SHORT).show();
+            Intent requestIntent = new Intent(getApplicationContext(), RequestActivity.class);
+            startActivity(requestIntent);
         });
-        ImageView btn3 = findViewById(R.id.profilebutton);
-        btn3.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v3) {
-                Toast.makeText(HomeActivity.this, "Working", Toast.LENGTH_SHORT).show();
-                Intent i3 = new Intent(getApplicationContext(), ProfileActivity.class);
-                startActivity(i3);
-            }
+
+        ImageView btnProfile = findViewById(R.id.profilebutton);
+        btnProfile.setOnClickListener(v -> {
+            Toast.makeText(HomeActivity.this, "Profile Button Clicked", Toast.LENGTH_SHORT).show();
+            Intent profileIntent = new Intent(getApplicationContext(), ProfileMenuActivity.class);
+            startActivity(profileIntent);
         });
-        ImageView btn4 = findViewById(R.id.inboxbutton);
-        btn4.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v4) {
-                Toast.makeText(HomeActivity.this, "Working", Toast.LENGTH_SHORT).show();
-                Intent i4 = new Intent(getApplicationContext(), InboxActivity.class);
-                startActivity(i4);
-            }
+
+        ImageView btnInbox = findViewById(R.id.inboxbutton);
+        btnInbox.setOnClickListener(v -> {
+            Toast.makeText(HomeActivity.this, "Inbox Button Clicked", Toast.LENGTH_SHORT).show();
+            Intent inboxIntent = new Intent(getApplicationContext(), InboxActivity.class);
+            startActivity(inboxIntent);
         });
     }
 }

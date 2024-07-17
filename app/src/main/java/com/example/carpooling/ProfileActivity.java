@@ -2,10 +2,11 @@ package com.example.carpooling;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
-import android.widget.Button;
 import android.widget.ImageView;
-import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -15,21 +16,28 @@ import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
+import com.google.firebase.auth.FirebaseAuth;
+
 public class ProfileActivity extends AppCompatActivity {
     private TextView edit_text;
     private TextView verify_id;
+    private FirebaseAuth mAuth;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         EdgeToEdge.enable(this);
         setContentView(R.layout.activity_profile);
+        mAuth = FirebaseAuth.getInstance();
+
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.linprofile), (v, insets) -> {
             Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
         });
-        edit_text=findViewById(R.id.personaldetails);
-        verify_id=findViewById(R.id.verifyid);
+
+        edit_text = findViewById(R.id.personaldetails);
+        verify_id = findViewById(R.id.verifyid);
 
         ImageView btn1 = findViewById(R.id.homebtn);
         btn1.setOnClickListener(new View.OnClickListener() {
@@ -39,6 +47,7 @@ public class ProfileActivity extends AppCompatActivity {
                 startActivity(i2);
             }
         });
+
         edit_text.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v1) {
@@ -46,6 +55,7 @@ public class ProfileActivity extends AppCompatActivity {
                 startActivity(i4);
             }
         });
+
         verify_id.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v3) {
@@ -53,7 +63,6 @@ public class ProfileActivity extends AppCompatActivity {
                 startActivity(i5);
             }
         });
-
 
         ImageView btn3 = findViewById(R.id.inboxbutton);
         btn3.setOnClickListener(new View.OnClickListener() {
@@ -63,6 +72,6 @@ public class ProfileActivity extends AppCompatActivity {
                 startActivity(i3);
             }
         });
-
     }
+
 }

@@ -1,5 +1,6 @@
 package com.example.carpooling;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.View;
@@ -29,10 +30,11 @@ public class PersonalActivity extends AppCompatActivity {
     private CalendarView calendarView;
     private EditText editTextName, editTextEmail, editTextPhone;
     private Spinner spinnerCountryCode;
-    private Button buttonSave;
+    private Button buttonSave, buttonMenuBar;
     private TextView dateTextView;
     private FirebaseAuth mAuth;
     private DatabaseReference mDatabase;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -43,14 +45,17 @@ public class PersonalActivity extends AppCompatActivity {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
         });
+
         editTextName = findViewById(R.id.editpersname);
         editTextEmail = findViewById(R.id.enteremailid);
         editTextPhone = findViewById(R.id.editTextPhone);
         spinnerCountryCode = findViewById(R.id.spinnerCountryCode);
         buttonSave = findViewById(R.id.button2);
+        buttonMenuBar = findViewById(R.id.to_menu); // Initialize the menu_bar Button
         dateTextView = findViewById(R.id.dateTextView);
         mAuth = FirebaseAuth.getInstance();
         mDatabase = FirebaseDatabase.getInstance().getReference();
+
         dateTextView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -72,6 +77,7 @@ public class PersonalActivity extends AppCompatActivity {
                 calendarView.setVisibility(View.GONE);  // Hide the calendar after selecting a date
             }
         });
+
         ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this,
                 R.array.country_codes, android.R.layout.simple_spinner_item);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
@@ -81,6 +87,15 @@ public class PersonalActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 saveProfile();
+            }
+        });
+
+        // Set the onClickListener for the menu_bar Button
+        buttonMenuBar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(PersonalActivity.this, ProfileMenuActivity.class);
+                startActivity(intent);
             }
         });
 
@@ -152,6 +167,5 @@ public class PersonalActivity extends AppCompatActivity {
             }
         }
         return 0;
-
     }
 }
