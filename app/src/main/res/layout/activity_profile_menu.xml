@@ -7,15 +7,17 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:openDrawer="left"
+    android:fitsSystemWindows="true"
     tools:context=".ProfileMenuActivity">
 <include
     layout="@layout/activity_profile"/>
 
     <com.google.android.material.navigation.NavigationView
+        android:id="@+id/NavigationView"
         android:layout_width="250dp"
         android:layout_height="match_parent"
         android:layout_gravity="start"
         app:headerLayout="@layout/header"
-        app:menu="@menu/menu_main" />
+        app:menu="@menu/menu_main"
+        />
 </androidx.drawerlayout.widget.DrawerLayout>
-<!--//shines>

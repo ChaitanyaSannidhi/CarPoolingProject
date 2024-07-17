@@ -2,19 +2,16 @@ package com.example.carpooling;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.view.Menu;
-import android.view.MenuInflater;
-import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
+import androidx.drawerlayout.widget.DrawerLayout;
 
 import com.google.firebase.auth.FirebaseAuth;
 
@@ -22,6 +19,8 @@ public class ProfileActivity extends AppCompatActivity {
     private TextView edit_text;
     private TextView verify_id;
     private FirebaseAuth mAuth;
+    DrawerLayout drawerLayout;
+    ImageView menuDrawer;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

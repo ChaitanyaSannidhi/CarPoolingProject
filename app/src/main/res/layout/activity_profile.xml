@@ -148,17 +148,18 @@
 
 
         <ImageView
+            android:id="@+id/menuDrawer2"
             android:layout_width="66dp"
             android:layout_height="39dp"
             android:src="@drawable/menu_icon"
-            android:id="@+id/menu_drawer"/>
+            android:textAlignment="center" />
 
         <ImageView
-            android:id="@+id/profile_picture"
+            android:id="@+id/menuDrawer"
             android:layout_width="152dp"
             android:layout_height="162dp"
             android:layout_gravity="center"
-            android:background="@drawable/account"
+            android:background="@drawable/menu_icon"
             android:contentDescription="Profile Picture"
             android:scaleType="centerCrop"
 
@@ -358,9 +359,10 @@
         android:text=" Verify your profile"
         android:textColor="@color/white"
         android:textSize="24dp"
-        app:layout_constraintTop_toBottomOf="@+id/linprofile"
-        tools:layout_editor_absoluteX="0dp" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/linprofile" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
-    <!--hello>

@@ -1,19 +1,14 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
     <item
-        android:id="@+id/action_settings"
-        android:title="Settings"
-        android:orderInCategory="100"
-        app:showAsAction="never"
-        android:icon="@drawable/settings_icon"/>
-    <item
-        android:id="@+id/action_about"
+        android:id="@+id/about"
         android:title="About"
-        android:orderInCategory="100"
+        android:orderInCategory="5000"
         app:showAsAction="never"
-        android:icon="@drawable/info_icon"/>
+        android:icon="@drawable/info_icon"
+        />
     <item
-        android:id="@+id/action_edit"
+        android:id="@+id/edit"
         android:title="Edit Your Details"
         android:orderInCategory="100"
         app:showAsAction="never"
@@ -21,15 +16,14 @@
     <item
         android:id="@+id/logout"
         android:title="Logout"
-        android:orderInCategory="1000"
+        android:orderInCategory="10000"
         app:showAsAction="never"
         android:icon="@drawable/baseline_logout_24"/>
     <item
-        android:id="@+id/action_view_statistics"
-        android:title="Stats"
-        android:orderInCategory="1000"
+        android:id="@+id/view_statistics"
+        android:title="Statistics"
+        android:orderInCategory="100"
         app:showAsAction="never"
         android:icon="@drawable/outline_auto_graph_24"/>
 
 </menu>
-    <!--//shines>

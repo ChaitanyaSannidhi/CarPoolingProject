@@ -3,4 +3,3 @@
     <stroke android:width="2dp" android:color="#EEEBE3"/><!-- Border width and color -->
     <corners android:radius="90dp"/> <!-- Border radius for rounded corners -->
 </shape>
-    <!--//shines>
