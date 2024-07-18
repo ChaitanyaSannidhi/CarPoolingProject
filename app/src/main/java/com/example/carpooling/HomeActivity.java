@@ -45,7 +45,7 @@ public class HomeActivity extends AppCompatActivity {
         ImageView btnProfile = findViewById(R.id.profilebutton);
         btnProfile.setOnClickListener(v -> {
             Toast.makeText(HomeActivity.this, "Profile Button Clicked", Toast.LENGTH_SHORT).show();
-            Intent profileIntent = new Intent(getApplicationContext(), ProfileMenuActivity.class);
+            Intent profileIntent = new Intent(getApplicationContext(), ProfileActivity.class);
             startActivity(profileIntent);
         });
 
