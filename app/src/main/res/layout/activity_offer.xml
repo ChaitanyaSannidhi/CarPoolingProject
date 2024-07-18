@@ -134,6 +134,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="48dp"
                 android:layout_marginStart="4dp"
+                android:textColor="@color/spinner_color"
                 android:scrollbarSize="100dp" />
 
         </LinearLayout>
@@ -148,12 +149,12 @@
         android:text="Offer"
         android:textColor="@color/white"
         android:textSize="20sp"
-        app:layout_constraintBottom_toTopOf="@+id/linearLayout7"
+        app:layout_constraintBottom_toTopOf="@+id/bottom_navigation"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/linearLayout2"
-        app:layout_constraintVertical_bias="0.977" />
+        app:layout_constraintVertical_bias="0.567" />
 
     <CalendarView
         android:id="@+id/calendarView"
@@ -165,97 +166,18 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/imageView6" />
 
-    <LinearLayout
-        android:id="@+id/linearLayout7"
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/bottom_navigation"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="16dp"
-        android:orientation="horizontal"
+        android:layout_gravity="bottom"
+        android:layout_marginTop="60dp"
+        android:background="@color/white"
+        android:foregroundGravity="bottom"
+        app:itemIconTint="#8a2be2"
+        app:itemTextColor="#8a2be2"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent">
-
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:padding="10dp">
-
-            <ImageView
-                android:id="@+id/homebutton"
-                android:layout_width="59dp"
-                android:layout_height="61dp"
-                android:layout_margin="8dp"
-                android:scaleType="centerCrop"
-                android:src="@drawable/home" />
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Home"
-                android:textAlignment="center" />
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:padding="10dp">
-
-            <ImageView
-                android:layout_width="59dp"
-                android:layout_height="61dp"
-                android:layout_margin="8dp"
-                android:scaleType="centerCrop"
-                android:src="@drawable/logo" />
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Your Rides"
-                android:textAlignment="center" />
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:padding="10dp">
-
-            <ImageView
-                android:id="@+id/inboxbutton"
-                android:layout_width="59dp"
-                android:layout_height="61dp"
-                android:layout_margin="8dp"
-                android:scaleType="centerCrop"
-                android:src="@drawable/inbox" />
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Inbox"
-                android:textAlignment="center" />
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:padding="10dp">
-
-            <ImageView
-                android:id="@+id/profilebutton"
-                android:layout_width="59dp"
-                android:layout_height="61dp"
-                android:layout_margin="8dp"
-                android:scaleType="centerCrop"
-                android:src="@drawable/account" />
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Profile"
-                android:textAlignment="center" />
-        </LinearLayout>
-    </LinearLayout>
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintVertical_bias="1.0"
+        app:menu="@menu/bottom_nav_menu" />
 </androidx.constraintlayout.widget.ConstraintLayout>

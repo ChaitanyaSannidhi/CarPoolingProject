@@ -5,4 +5,38 @@
     <style name="SplashTheme" parent="Theme.AppCompat.Light.NoActionBar">
         <item name="android:windowBackground">#E7DFDF</item>
     </style>
+    <style name="AppTheme" parent="Theme.MaterialComponents.Light.NoActionBar">
+        <!-- Primary color -->
+        <item name="colorPrimary">@color/primaryColor</item>
+        <item name="colorPrimaryVariant">@color/primaryDarkColor</item>
+        <item name="colorOnPrimary">@color/primaryTextColor</item>
+        <!-- Secondary color -->
+        <item name="colorSecondary">@color/primaryLightColor</item>
+        <item name="colorSecondaryVariant">@color/primaryLightColor</item>
+        <item name="colorOnSecondary">@color/primaryTextColor</item>
+        <!-- Background color -->
+        <item name="android:colorBackground">@color/bottomNavBackground</item>
+        <!-- Bottom navigation customization -->
+        <item name="bottomNavigationStyle">@style/BottomNavigationViewStyle</item>
+    </style>
+
+    <!-- Bottom Navigation View Style -->
+    <style name="BottomNavigationViewStyle" parent="">
+        <item name="itemIconTint">@color/bottom_nav_item_color_selector</item>
+        <item name="itemTextColor">@color/bottom_nav_item_color_selector</item>
+        <item name="backgroundTint">@color/bottomNavBackground</item>
+    </style>
+
+    <!-- Custom button style -->
+    <style name="CustomButtonStyle" parent="Widget.MaterialComponents.Button">
+        <item name="backgroundTint">@color/primaryColor</item>
+        <item name="android:textColor">@color/primaryTextColor</item>
+    </style>
+
+    <!-- Custom text view style -->
+    <style name="CustomTextViewStyle" parent="TextAppearance.MaterialComponents.Body1">
+        <item name="android:textColor">@color/secondaryTextColor</item>
+    </style>
+
+
 </resources>

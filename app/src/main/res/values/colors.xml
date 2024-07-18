@@ -1,6 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources>
+<resources xmlns:tools="http://schemas.android.com/tools">
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
-
+    <color name="bottom_nav_item_color">#8a2be2</color>
+    <color name="bottom_nav_item_color_selected">#8a2be2</color>
+    <color name="bottom_nav_background">#FFFFFF</color>
+    <color name="primaryColor">#8a2be2</color>
+    <color name="primaryLightColor">#D1B3FF</color>
+    <color name="primaryDarkColor">#D1B3FF</color>
+    <color name="primaryTextColor">#FFFFFF</color>
+    <color name="secondaryTextColor">#8a2be2</color>
+    <color name="bottomNavBackground">#FFFFFF</color>
+    <color name="bottomNavItemColor">#8a2be2</color>
+    <color name="bottomNavItemColorSelected">#D1B3FF</color>
+    <color name="spinner_color">#FF000000</color>
 </resources>
+
