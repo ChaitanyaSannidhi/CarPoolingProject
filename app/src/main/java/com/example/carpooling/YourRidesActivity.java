@@ -46,7 +46,7 @@ public class YourRidesActivity extends AppCompatActivity {
                     return true;
                 } else if (id == R.id.navigation_profile) {
                     Toast.makeText(YourRidesActivity.this, "Profile", Toast.LENGTH_SHORT).show();
-                    startActivity(new Intent(getApplicationContext(), ProfileActivity.class));
+                    startActivity(new Intent(getApplicationContext(), ProfileMenuActivity.class));
                     return true;
                 }
                 return false;

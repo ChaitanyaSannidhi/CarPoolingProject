@@ -4,14 +4,13 @@ import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.activity.EdgeToEdge;
-import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
-
 import android.view.MenuItem;
 import android.view.View;
+import androidx.annotation.NonNull;
 import android.widget.ArrayAdapter;
 import android.widget.CalendarView;
 import android.widget.ImageView;
@@ -19,7 +18,6 @@ import android.widget.LinearLayout;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
-
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.navigation.NavigationBarView;
 
@@ -47,7 +45,6 @@ public class OfferActivity extends AppCompatActivity {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
         });
-
         BottomNavigationView bottomNavigationView = findViewById(R.id.bottom_navigation);
         bottomNavigationView.setSelectedItemId(R.id.offer);
         bottomNavigationView.setOnItemSelectedListener(new NavigationBarView.OnItemSelectedListener() {
@@ -68,7 +65,7 @@ public class OfferActivity extends AppCompatActivity {
                     return true;
                 } else if (id == R.id.navigation_profile) {
                     Toast.makeText(OfferActivity.this, "Profile", Toast.LENGTH_SHORT).show();
-                    startActivity(new Intent(getApplicationContext(), ProfileActivity.class));
+                    startActivity(new Intent(getApplicationContext(), ProfileMenuActivity.class));
                     return true;
                 }
                 return false;
@@ -103,3 +100,4 @@ public class OfferActivity extends AppCompatActivity {
         }
     }
 }
+//spark

@@ -6,15 +6,15 @@
         <item name="android:windowBackground">#E7DFDF</item>
     </style>
     <style name="AppTheme" parent="Theme.MaterialComponents.Light.NoActionBar">
-        <!-- Primary color -->
+        <!-- Primary coloejende -->
         <item name="colorPrimary">@color/primaryColor</item>
         <item name="colorPrimaryVariant">@color/primaryDarkColor</item>
         <item name="colorOnPrimary">@color/primaryTextColor</item>
-        <!-- Secondary color -->
+        <!-- Secondary coloejende -->
         <item name="colorSecondary">@color/primaryLightColor</item>
         <item name="colorSecondaryVariant">@color/primaryLightColor</item>
         <item name="colorOnSecondary">@color/primaryTextColor</item>
-        <!-- Background color -->
+        <!-- Background coloejende -->
         <item name="android:colorBackground">@color/bottomNavBackground</item>
         <!-- Bottom navigation customization -->
         <item name="bottomNavigationStyle">@style/BottomNavigationViewStyle</item>
@@ -37,6 +37,5 @@
     <style name="CustomTextViewStyle" parent="TextAppearance.MaterialComponents.Body1">
         <item name="android:textColor">@color/secondaryTextColor</item>
     </style>
-
 
 </resources>

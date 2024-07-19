@@ -1,35 +1,35 @@
 package com.example.carpooling;
 
+import android.annotation.SuppressLint;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
-import android.view.MenuItem;
+import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.Toast;
-
-import androidx.activity.EdgeToEdge;
+import android.view.MenuItem;
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.graphics.Insets;
+import com.example.carpooling.R;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
-
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.navigation.NavigationBarView;
-
 public class HomeActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        EdgeToEdge.enable(this);
         setContentView(R.layout.activity_home);
+
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
             Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
         });
-
-        // Set up the bottom navigation view
         BottomNavigationView bottomNavigationView = findViewById(R.id.bottom_navigation);
         bottomNavigationView.setOnItemSelectedListener(new NavigationBarView.OnItemSelectedListener() {
             @Override
@@ -48,7 +48,7 @@ public class HomeActivity extends AppCompatActivity {
                     return true;
                 } else if (id == R.id.navigation_profile) {
                     Toast.makeText(HomeActivity.this, "Profile", Toast.LENGTH_SHORT).show();
-                    startActivity(new Intent(getApplicationContext(), ProfileActivity.class));
+                    startActivity(new Intent(getApplicationContext(), ProfileMenuActivity.class));
                     return true;
                 }
                 return false;
@@ -69,5 +69,27 @@ public class HomeActivity extends AppCompatActivity {
             Intent i2 = new Intent(getApplicationContext(), RequestActivity.class);
             startActivity(i2);
         });
+
+
+
     }
+
+
+    @SuppressLint("MissingSuperCall")
+    @Override
+    public void onBackPressed() {
+        // Create an alert dialog
+        new AlertDialog.Builder(this)
+                .setTitle("Exit Application")
+                .setMessage("Are you sure you want to exit?")
+                .setPositiveButton(android.R.string.yes, new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int which) {
+                        // Exit the application
+                        HomeActivity.super.onBackPressed();
+                    }
+                })
+                .setNegativeButton(android.R.string.no, null)
+                .show();
+    }
+
 }

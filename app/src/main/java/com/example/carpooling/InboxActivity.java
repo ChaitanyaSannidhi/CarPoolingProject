@@ -1,5 +1,4 @@
 package com.example.carpooling;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
@@ -16,7 +15,6 @@ import androidx.core.view.WindowInsetsCompat;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.navigation.NavigationBarView;
-
 
 public class InboxActivity extends AppCompatActivity {
 
@@ -49,11 +47,13 @@ public class InboxActivity extends AppCompatActivity {
                     return true;
                 } else if (id == R.id.navigation_profile) {
                     Toast.makeText(InboxActivity.this, "Profile", Toast.LENGTH_SHORT).show();
-                    startActivity(new Intent(getApplicationContext(), ProfileActivity.class));
+                    startActivity(new Intent(getApplicationContext(), ProfileMenuActivity.class));
                     return true;
                 }
                 return false;
             }
         });
+
     }
 }
+//spark

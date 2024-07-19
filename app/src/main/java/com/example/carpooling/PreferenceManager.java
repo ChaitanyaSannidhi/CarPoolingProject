@@ -24,3 +24,4 @@ public class PreferenceManager {
         return sharedPreferences.getBoolean(KEY_IS_LOGGED_IN, false);
     }
 }
+//spark
