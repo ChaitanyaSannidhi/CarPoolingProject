@@ -1,6 +1,5 @@
 package com.example.carpooling;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.View;
@@ -30,11 +29,10 @@ public class PersonalActivity extends AppCompatActivity {
     private CalendarView calendarView;
     private EditText editTextName, editTextEmail, editTextPhone;
     private Spinner spinnerCountryCode;
-    private Button buttonSave, buttonMenuBar;
+    private Button buttonSave;
     private TextView dateTextView;
     private FirebaseAuth mAuth;
     private DatabaseReference mDatabase;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -45,39 +43,13 @@ public class PersonalActivity extends AppCompatActivity {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
         });
-
         editTextName = findViewById(R.id.editpersname);
         editTextEmail = findViewById(R.id.enteremailid);
         editTextPhone = findViewById(R.id.editTextPhone);
         spinnerCountryCode = findViewById(R.id.spinnerCountryCode);
-        buttonSave = findViewById(R.id.button2);
-        buttonMenuBar = findViewById(R.id.to_menu); // Initialize the menu_bar Button
-        dateTextView = findViewById(R.id.dateTextView);
+        buttonSave = findViewById(R.id.savebutton);
         mAuth = FirebaseAuth.getInstance();
         mDatabase = FirebaseDatabase.getInstance().getReference();
-
-        dateTextView.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if (calendarView.getVisibility() == View.GONE) {
-                    calendarView.setVisibility(View.VISIBLE);
-                } else {
-                    calendarView.setVisibility(View.GONE);
-                }
-            }
-        });
-
-        // Initialize CalendarView
-        calendarView = findViewById(R.id.calendarView);
-        calendarView.setOnDateChangeListener(new CalendarView.OnDateChangeListener() {
-            @Override
-            public void onSelectedDayChange(CalendarView view, int year, int month, int dayOfMonth) {
-                String selectedDate = dayOfMonth + "/" + (month + 1) + "/" + year;
-                dateTextView.setText(selectedDate);
-                calendarView.setVisibility(View.GONE);  // Hide the calendar after selecting a date
-            }
-        });
-
         ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this,
                 R.array.country_codes, android.R.layout.simple_spinner_item);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
@@ -87,15 +59,6 @@ public class PersonalActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 saveProfile();
-            }
-        });
-
-        // Set the onClickListener for the menu_bar Button
-        buttonMenuBar.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(PersonalActivity.this, ProfileMenuActivity.class);
-                startActivity(intent);
             }
         });
 
@@ -157,6 +120,30 @@ public class PersonalActivity extends AppCompatActivity {
                     Toast.makeText(PersonalActivity.this, "Failed to load profile", Toast.LENGTH_SHORT).show();
                 }
             });
+            dateTextView = findViewById(R.id.dateTextView);
+            calendarView = findViewById(R.id.calendarView);
+            calendarView.setVisibility(View.GONE); // Ensure calendar is initially hidden
+            dateTextView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    calendarView.setVisibility(View.VISIBLE);
+                }
+            });
+
+            dateTextView.setOnClickListener(v -> toggleCalendarViewVisibility());
+
+            calendarView.setOnDateChangeListener((view, year, month, dayOfMonth) -> {
+                String selectedDate = dayOfMonth + "/" + (month + 1) + "/" + year;
+                dateTextView.setText(selectedDate);
+                calendarView.setVisibility(View.GONE);
+            });
+        }
+    }
+    private void toggleCalendarViewVisibility() {
+        if (calendarView.getVisibility() == View.GONE) {
+            calendarView.setVisibility(View.VISIBLE);
+        } else {
+            calendarView.setVisibility(View.GONE);
         }
     }
 
@@ -167,6 +154,6 @@ public class PersonalActivity extends AppCompatActivity {
             }
         }
         return 0;
+
     }
 }
-//spark

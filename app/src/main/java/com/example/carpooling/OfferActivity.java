@@ -8,8 +8,9 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
-
+import android.view.MenuItem;
 import android.view.View;
+import androidx.annotation.NonNull;
 import android.widget.ArrayAdapter;
 import android.widget.CalendarView;
 import android.widget.ImageView;
@@ -17,6 +18,8 @@ import android.widget.LinearLayout;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
+import com.google.android.material.bottomnavigation.BottomNavigationView;
+import com.google.android.material.navigation.NavigationBarView;
 
 public class OfferActivity extends AppCompatActivity {
 
@@ -42,27 +45,31 @@ public class OfferActivity extends AppCompatActivity {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
         });
-
-        // Set onClick listeners for navigation buttons
-        ImageView btn1 = findViewById(R.id.homebutton);
-        btn1.setOnClickListener(v1 -> {
-            Toast.makeText(OfferActivity.this, "Working", Toast.LENGTH_SHORT).show();
-            Intent i2 = new Intent(getApplicationContext(), HomeActivity.class);
-            startActivity(i2);
-        });
-
-        ImageView btn2 = findViewById(R.id.profilebutton);
-        btn2.setOnClickListener(v2 -> {
-            Toast.makeText(OfferActivity.this, "Working", Toast.LENGTH_SHORT).show();
-            Intent i3 = new Intent(getApplicationContext(), ProfileActivity.class);
-            startActivity(i3);
-        });
-
-        ImageView btn4 = findViewById(R.id.inboxbutton);
-        btn4.setOnClickListener(v3 -> {
-            Toast.makeText(OfferActivity.this, "Working", Toast.LENGTH_SHORT).show();
-            Intent i4 = new Intent(getApplicationContext(), InboxActivity.class);
-            startActivity(i4);
+        BottomNavigationView bottomNavigationView = findViewById(R.id.bottom_navigation);
+        bottomNavigationView.setSelectedItemId(R.id.offer);
+        bottomNavigationView.setOnItemSelectedListener(new NavigationBarView.OnItemSelectedListener() {
+            @Override
+            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+                int id = item.getItemId();
+                if (id == R.id.navigation_inbox) {
+                    Toast.makeText(OfferActivity.this, "Home", Toast.LENGTH_SHORT).show();
+                    startActivity(new Intent(getApplicationContext(), InboxActivity.class));
+                    return true;
+                } else if (id == R.id.navigation_rides) {
+                    Toast.makeText(OfferActivity.this, "Your Rides", Toast.LENGTH_SHORT).show();
+                    startActivity(new Intent(getApplicationContext(), YourRidesActivity.class));
+                    return true;
+                } else if (id == R.id.navigation_home) {
+                    Toast.makeText(OfferActivity.this, "Inbox", Toast.LENGTH_SHORT).show();
+                    startActivity(new Intent(getApplicationContext(), HomeActivity.class));
+                    return true;
+                } else if (id == R.id.navigation_profile) {
+                    Toast.makeText(OfferActivity.this, "Profile", Toast.LENGTH_SHORT).show();
+                    startActivity(new Intent(getApplicationContext(), ProfileMenuActivity.class));
+                    return true;
+                }
+                return false;
+            }
         });
 
         // Date selection logic

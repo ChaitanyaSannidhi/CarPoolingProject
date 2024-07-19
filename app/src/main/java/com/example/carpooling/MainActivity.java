@@ -47,7 +47,7 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(i2);
             }
         });
-        //adding contributor
+
 
     }
 }

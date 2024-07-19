@@ -26,7 +26,7 @@ public class VerifyidActivity extends AppCompatActivity {
         ImageView btn1 = findViewById(R.id.backarrow);
         btn1.setOnClickListener(v1 -> {
             Toast.makeText(VerifyidActivity.this, "Working", Toast.LENGTH_SHORT).show();
-            Intent i2 = new Intent(getApplicationContext(), ProfileActivity.class);
+            Intent i2 = new Intent(getApplicationContext(), ProfileMenuActivity.class);
             startActivity(i2);
         });
     }

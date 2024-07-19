@@ -7,18 +7,6 @@
     android:background="@color/white"
     tools:context=".ProfileActivity">
 
-    <Button
-        android:id="@+id/to_menu"
-        android:layout_width="281dp"
-        android:layout_height="50dp"
-        android:layout_marginBottom="60dp"
-        android:backgroundTint="#8A2BE2"
-        android:text="To menu"
-        android:textSize="25sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.4"
-        app:layout_constraintStart_toStartOf="parent" />
 
     <TextView
         android:id="@+id/personalhead"
@@ -143,7 +131,7 @@
         tools:layout_editor_absoluteX="52dp" />
 
     <Button
-        android:id="@+id/button2"
+        android:id="@+id/savebutton"
         android:layout_width="281dp"
         android:layout_height="50dp"
         android:layout_marginBottom="128dp"

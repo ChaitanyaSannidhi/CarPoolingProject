@@ -89,7 +89,7 @@
         android:id="@+id/linearLayout"
         android:layout_width="match_parent"
         android:layout_height="71dp"
-        android:layout_marginTop="348dp"
+        android:layout_marginTop="352dp"
         android:background="#FFFFFF"
         android:elevation="2dp"
         android:orientation="vertical"
@@ -155,11 +155,11 @@
             android:textAlignment="center" />
 
         <ImageView
-            android:id="@+id/menuDrawer"
+            android:id="@+id/navigation_profile"
             android:layout_width="152dp"
             android:layout_height="162dp"
             android:layout_gravity="center"
-            android:background="@drawable/menu_icon"
+            android:background="@drawable/profileicon"
             android:contentDescription="Profile Picture"
             android:scaleType="centerCrop"
 
@@ -208,103 +208,6 @@
         android:layout_height="wrap_content"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/linprofile">
-
-
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="365dp"
-        android:layout_height="107dp"
-        android:layout_marginTop="12dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/linearLayout6">
-
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:padding="10dp">
-
-            <ImageView
-                android:id="@+id/homebtn"
-                android:layout_width="59dp"
-                android:layout_height="61dp"
-                android:layout_margin="8dp"
-                android:scaleType="centerCrop"
-                android:src="@drawable/home" />
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Home"
-                android:textAlignment="center" />
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:padding="10dp">
-
-            <ImageView
-                android:layout_width="59dp"
-                android:layout_height="61dp"
-                android:layout_margin="8dp"
-                android:scaleType="centerCrop"
-                android:src="@drawable/logo" />
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Your Rides"
-                android:textAlignment="center" />
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:padding="10dp">
-
-            <ImageView
-                android:id="@+id/inboxbutton"
-                android:layout_width="59dp"
-                android:layout_height="61dp"
-                android:layout_margin="8dp"
-                android:scaleType="centerCrop"
-                android:src="@drawable/inbox" />
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Inbox"
-                android:textAlignment="center" />
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:padding="10dp">
-
-            <ImageView
-                android:layout_width="59dp"
-                android:layout_height="61dp"
-                android:layout_margin="8dp"
-                android:scaleType="centerCrop"
-                android:src="@drawable/account" />
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="You"
-                android:textAlignment="center">
-
-            </TextView>
-
-        </LinearLayout>
 
 
     </LinearLayout>
@@ -364,5 +267,32 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/linprofile" />
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/bottom_navigation"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom"
+        android:layout_marginTop="60dp"
+        android:background="@color/white"
+        android:foregroundGravity="bottom"
+        app:itemIconTint="#8a2be2"
+        app:itemTextColor="#8a2be2"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintVertical_bias="1.0"
+        app:menu="@menu/bottom_nav_menu" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

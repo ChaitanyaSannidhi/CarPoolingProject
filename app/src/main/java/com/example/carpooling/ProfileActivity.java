@@ -5,6 +5,8 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.view.MenuItem;
+import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
@@ -12,8 +14,10 @@ import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
-
+import androidx.annotation.NonNull;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.android.material.bottomnavigation.BottomNavigationView;
+import com.google.android.material.navigation.NavigationBarView;
 
 public class ProfileActivity extends AppCompatActivity {
     private TextView edit_text;
@@ -38,14 +42,7 @@ public class ProfileActivity extends AppCompatActivity {
         edit_text = findViewById(R.id.personaldetails);
         verify_id = findViewById(R.id.verifyid);
 
-        ImageView btn1 = findViewById(R.id.homebtn);
-        btn1.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v2) {
-                Intent i2 = new Intent(getApplicationContext(), HomeActivity.class);
-                startActivity(i2);
-            }
-        });
+
 
         edit_text.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -62,16 +59,32 @@ public class ProfileActivity extends AppCompatActivity {
                 startActivity(i5);
             }
         });
-
-        ImageView btn3 = findViewById(R.id.inboxbutton);
-        btn3.setOnClickListener(new View.OnClickListener() {
+        BottomNavigationView bottomNavigationView = findViewById(R.id.bottom_navigation);
+        bottomNavigationView.setSelectedItemId(R.id.navigation_profile);
+        bottomNavigationView.setOnItemSelectedListener(new NavigationBarView.OnItemSelectedListener() {
             @Override
-            public void onClick(View v3) {
-                Intent i3 = new Intent(getApplicationContext(), InboxActivity.class);
-                startActivity(i3);
+            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+                int id = item.getItemId();
+                if (id == R.id.navigation_profile) {
+                    Toast.makeText(ProfileActivity.this, "Home", Toast.LENGTH_SHORT).show();
+                    return true;
+                } else if (id == R.id.navigation_rides) {
+                    Toast.makeText(ProfileActivity.this, "Your Rides", Toast.LENGTH_SHORT).show();
+                    startActivity(new Intent(getApplicationContext(), YourRidesActivity.class));
+                    return true;
+                } else if (id == R.id.navigation_home) {
+                    Toast.makeText(ProfileActivity.this, "Inbox", Toast.LENGTH_SHORT).show();
+                    startActivity(new Intent(getApplicationContext(), HomeActivity.class));
+                    return true;
+                } else if (id == R.id.navigation_inbox) {
+                    Toast.makeText(ProfileActivity.this, "Profile", Toast.LENGTH_SHORT).show();
+                    startActivity(new Intent(getApplicationContext(), InboxActivity.class));
+                    return true;
+                }
+                return false;
             }
         });
+
     }
 
 }
-//spark

@@ -28,6 +28,9 @@
             android:name=".PersonalActivity"
             android:exported="false" />
         <activity
+            android:name=".YourRidesActivity"
+            android:exported="false" />
+        <activity
             android:name=".ProfileMenuActivity"
             android:exported="false" />
         <activity
@@ -36,6 +39,7 @@
         <activity
             android:name=".StatisticsActivity"
             android:exported="false" />
+
         <meta-data
             android:name="com.google.android.gms.version"
             android:value="@integer/google_play_services_version" />
@@ -64,11 +68,9 @@
         <activity
             android:name=".RequestActivity"
             android:exported="false" />
-
         <activity
             android:name=".MainActivity"
             android:exported="true">
-
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
