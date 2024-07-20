@@ -7,7 +7,6 @@
     android:background="@color/white"
     tools:context=".ProfileActivity">
 
-
     <TextView
         android:id="@+id/personalhead"
         android:layout_width="match_parent"
@@ -122,19 +121,21 @@
 
     <TextView
         android:id="@+id/textView5"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="16dp"
+        android:layout_width="392dp"
+        android:layout_height="45dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="16dp"
         android:text="Date of Birth"
+        android:textColor="@color/black"
         android:textSize="24sp"
-        app:layout_constraintTop_toBottomOf="@+id/linearLayout7"
-        tools:layout_editor_absoluteX="52dp" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout7" />
 
     <Button
         android:id="@+id/savebutton"
         android:layout_width="281dp"
         android:layout_height="50dp"
-        android:layout_marginBottom="128dp"
+        android:layout_marginBottom="56dp"
         android:backgroundTint="#8A2BE2"
         android:text="Save"
         android:textSize="25sp"
@@ -148,22 +149,25 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
+        android:layout_marginTop="48dp"
         android:background="?android:attr/selectableItemBackground"
         android:gravity="center"
         android:padding="16dp"
         android:text="Select a date"
+        android:textColor="@color/black"
         android:textSize="18sp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView5" />
+        app:layout_constraintTop_toTopOf="@+id/textView5" />
 
     <CalendarView
         android:id="@+id/calendarView"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@id/dateTextView"
-        android:visibility="gone"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView5" />
+        android:background="@color/white"
+        app:layout_constraintBottom_toTopOf="@+id/savebutton"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.737"
+        app:layout_constraintStart_toStartOf="parent" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

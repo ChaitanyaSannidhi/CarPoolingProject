@@ -11,7 +11,6 @@ import android.widget.TextView;
 import android.widget.Toast;
 import android.widget.ArrayAdapter;
 
-import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
@@ -33,36 +32,54 @@ public class PersonalActivity extends AppCompatActivity {
     private TextView dateTextView;
     private FirebaseAuth mAuth;
     private DatabaseReference mDatabase;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        EdgeToEdge.enable(this);
         setContentView(R.layout.activity_personal);
+
+        // Set padding for system bars
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.personalhead), (v, insets) -> {
             Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
         });
+
+        // Initialize views
         editTextName = findViewById(R.id.editpersname);
         editTextEmail = findViewById(R.id.enteremailid);
         editTextPhone = findViewById(R.id.editTextPhone);
         spinnerCountryCode = findViewById(R.id.spinnerCountryCode);
         buttonSave = findViewById(R.id.savebutton);
+        dateTextView = findViewById(R.id.dateTextView);
+        calendarView = findViewById(R.id.calendarView);
+
+        // Initialize Firebase Auth and Database
         mAuth = FirebaseAuth.getInstance();
         mDatabase = FirebaseDatabase.getInstance().getReference();
+
+        // Set up spinner with country codes
         ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this,
                 R.array.country_codes, android.R.layout.simple_spinner_item);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinnerCountryCode.setAdapter(adapter);
 
-        buttonSave.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                saveProfile();
-            }
-        });
+        // Set button click listener
+        buttonSave.setOnClickListener(v -> saveProfile());
 
+        // Load user profile
         loadUserProfile();
+
+        // Set calendar view visibility
+        calendarView.setVisibility(View.GONE);
+        dateTextView.setOnClickListener(v -> toggleCalendarViewVisibility());
+
+        // Set calendar date change listener
+        calendarView.setOnDateChangeListener((view, year, month, dayOfMonth) -> {
+            String selectedDate = dayOfMonth + "/" + (month + 1) + "/" + year;
+            dateTextView.setText(selectedDate);
+            calendarView.setVisibility(View.GONE);
+        });
     }
 
     private void saveProfile() {
@@ -120,25 +137,9 @@ public class PersonalActivity extends AppCompatActivity {
                     Toast.makeText(PersonalActivity.this, "Failed to load profile", Toast.LENGTH_SHORT).show();
                 }
             });
-            dateTextView = findViewById(R.id.dateTextView);
-            calendarView = findViewById(R.id.calendarView);
-            calendarView.setVisibility(View.GONE); // Ensure calendar is initially hidden
-            dateTextView.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View view) {
-                    calendarView.setVisibility(View.VISIBLE);
-                }
-            });
-
-            dateTextView.setOnClickListener(v -> toggleCalendarViewVisibility());
-
-            calendarView.setOnDateChangeListener((view, year, month, dayOfMonth) -> {
-                String selectedDate = dayOfMonth + "/" + (month + 1) + "/" + year;
-                dateTextView.setText(selectedDate);
-                calendarView.setVisibility(View.GONE);
-            });
         }
     }
+
     private void toggleCalendarViewVisibility() {
         if (calendarView.getVisibility() == View.GONE) {
             calendarView.setVisibility(View.VISIBLE);
@@ -154,6 +155,5 @@ public class PersonalActivity extends AppCompatActivity {
             }
         }
         return 0;
-
     }
 }

@@ -49,6 +49,7 @@
                 android:layout_height="wrap_content"
                 android:layout_toStartOf="@id/user_image"
                 android:text="Name"
+                android:textColor="@color/black"
                 android:textSize="16sp"
                 android:textStyle="bold" />
 
@@ -59,6 +60,7 @@
                 android:layout_below="@id/message_sender"
                 android:layout_toStartOf="@id/user_image"
                 android:text="startingpoint -> destination"
+                android:textColor="@color/black"
                 android:textSize="14sp" />
 
             <TextView
