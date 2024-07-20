@@ -23,5 +23,9 @@ public class PreferenceManager {
     public boolean isLoggedIn() {
         return sharedPreferences.getBoolean(KEY_IS_LOGGED_IN, false);
     }
+
+    public void clear() {
+        editor.clear();
+        editor.apply();
+    }
 }
-//spark

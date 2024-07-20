@@ -22,6 +22,7 @@ public class ProfileMenuActivity extends AppCompatActivity {
     NavigationView navigationView;
     private TextView edit_text;
     private TextView verify_id;
+    private PreferenceManager preferenceManager;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,12 +33,11 @@ public class ProfileMenuActivity extends AppCompatActivity {
         drawerLayout = findViewById(R.id.menu);
         imageView = findViewById(R.id.menuDrawer2);
         navigationView = findViewById(R.id.nav_view);
-
+        preferenceManager = new PreferenceManager(this);
 
         imageView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
                 drawerLayout.open();
             }
         });
@@ -45,20 +45,15 @@ public class ProfileMenuActivity extends AppCompatActivity {
         navigationView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
-
                 int itemId = item.getItemId();
 
                 if (itemId == R.id.about){
                     Toast.makeText(ProfileMenuActivity.this, "Clicked About", Toast.LENGTH_SHORT).show();
-                }
-
-                else if (itemId == R.id.edit){
+                } else if (itemId == R.id.edit){
                     Toast.makeText(ProfileMenuActivity.this, "Clicked Edit", Toast.LENGTH_SHORT).show();
-                }
-                else if (itemId == R.id.logout){
-                    Toast.makeText(ProfileMenuActivity.this, "Clicked Logout", Toast.LENGTH_SHORT).show();
-                }
-                else if (itemId == R.id.view_statistics){
+                } else if (itemId == R.id.logout){
+                    logout();
+                } else if (itemId == R.id.view_statistics){
                     Toast.makeText(ProfileMenuActivity.this, "Clicked Statistics", Toast.LENGTH_SHORT).show();
                 }
                 drawerLayout.close();
@@ -66,10 +61,9 @@ public class ProfileMenuActivity extends AppCompatActivity {
                 return true;
             }
         });
+
         edit_text = findViewById(R.id.personaldetails);
         verify_id = findViewById(R.id.verifyid);
-
-
 
         edit_text.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -86,6 +80,7 @@ public class ProfileMenuActivity extends AppCompatActivity {
                 startActivity(i5);
             }
         });
+
         BottomNavigationView bottomNavigationView = findViewById(R.id.bottom_navigation);
         bottomNavigationView.setSelectedItemId(R.id.navigation_profile);
         bottomNavigationView.setOnItemSelectedListener(new NavigationBarView.OnItemSelectedListener() {
@@ -93,7 +88,7 @@ public class ProfileMenuActivity extends AppCompatActivity {
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
                 int id = item.getItemId();
                 if (id == R.id.navigation_inbox) {
-                    Toast.makeText(ProfileMenuActivity.this, "Home", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(ProfileMenuActivity.this, "Inbox", Toast.LENGTH_SHORT).show();
                     startActivity(new Intent(getApplicationContext(), InboxActivity.class));
                     return true;
                 } else if (id == R.id.navigation_rides) {
@@ -101,7 +96,7 @@ public class ProfileMenuActivity extends AppCompatActivity {
                     startActivity(new Intent(getApplicationContext(), YourRidesActivity.class));
                     return true;
                 } else if (id == R.id.navigation_home) {
-                    Toast.makeText(ProfileMenuActivity.this, "Inbox", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(ProfileMenuActivity.this, "Home", Toast.LENGTH_SHORT).show();
                     startActivity(new Intent(getApplicationContext(), HomeActivity.class));
                     return true;
                 } else if (id == R.id.navigation_profile) {
@@ -112,5 +107,16 @@ public class ProfileMenuActivity extends AppCompatActivity {
                 return false;
             }
         });
+    }
+
+    private void logout() {
+        // Clear user data from SharedPreferences
+        preferenceManager.clear();
+
+        // Navigate to LoginActivity
+        Intent intent = new Intent(ProfileMenuActivity.this, LoginActivity.class);
+        intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+        startActivity(intent);
+        finish();
     }
 }
