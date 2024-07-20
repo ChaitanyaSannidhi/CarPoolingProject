@@ -5,7 +5,6 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#F2F0F6">
-
     <LinearLayout
         android:id="@+id/linprofile"
         android:layout_width="match_parent"
@@ -265,7 +264,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintVertical_bias="1.0"
         app:menu="@menu/bottom_nav_menu" />
-//guidence codes
+    <!-- guideline -->
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline"
         android:layout_width="wrap_content"
