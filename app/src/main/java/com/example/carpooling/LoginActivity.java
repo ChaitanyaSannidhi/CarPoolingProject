@@ -1,4 +1,5 @@
 package com.example.carpooling;
+
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
@@ -14,19 +15,16 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
+
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
-import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.auth.FirebaseAuthUserCollisionException;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
-import java.util.HashMap;
-import java.util.Map;
 
 public class LoginActivity extends AppCompatActivity {
 
@@ -37,36 +35,17 @@ public class LoginActivity extends AppCompatActivity {
     private FirebaseFirestore db;
     private PreferenceManager preferenceManager;
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         EdgeToEdge.enable(this);
         setContentView(R.layout.activity_login);
+
         preferenceManager = new PreferenceManager(this);
-        Button loginButton = findViewById(R.id.logbtn);
-        loginButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                // Handle login logic here
-                // After successful login
-
-            }
-        });
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+        if (preferenceManager.isLoggedIn()) {
+            startActivity(new Intent(LoginActivity.this, HomeActivity.class));
+            finish();
+        }
 
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
             Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
@@ -87,7 +66,7 @@ public class LoginActivity extends AppCompatActivity {
 
         loginButton.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v1) {
+            public void onClick(View v) {
                 String email = emailEditText.getText().toString().trim();
                 String password = passwordEditText.getText().toString().trim();
 
@@ -101,17 +80,17 @@ public class LoginActivity extends AppCompatActivity {
 
         noAcc.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v1) {
-                Intent i2 = new Intent(getApplicationContext(), SignupActivity.class);
-                startActivity(i2);
+            public void onClick(View v) {
+                Intent i = new Intent(getApplicationContext(), SignupActivity.class);
+                startActivity(i);
             }
         });
 
         forgotPassword.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v1) {
-                Intent i3 = new Intent(getApplicationContext(), ForgotActivity.class);
-                startActivity(i3);
+            public void onClick(View v) {
+                Intent i = new Intent(getApplicationContext(), ForgotActivity.class);
+                startActivity(i);
             }
         });
     }
@@ -149,8 +128,8 @@ public class LoginActivity extends AppCompatActivity {
                         // You can now use the retrieved data as needed
                         Toast.makeText(LoginActivity.this, "Welcome " + username, Toast.LENGTH_SHORT).show();
                         // Navigate to the home activity
-                        Intent i1 = new Intent(getApplicationContext(), HomeActivity.class);
-                        startActivity(i1);
+                        Intent i = new Intent(getApplicationContext(), HomeActivity.class);
+                        startActivity(i);
                         finish();
                     } else {
                         Toast.makeText(LoginActivity.this, "No such user", Toast.LENGTH_SHORT).show();
@@ -166,5 +145,4 @@ public class LoginActivity extends AppCompatActivity {
             }
         });
     }
-    }
-//spark
+}
