@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.TextView;
 import android.widget.Toast;
 import androidx.activity.EdgeToEdge;
 import androidx.annotation.NonNull;
@@ -19,6 +20,8 @@ public class ProfileMenuActivity extends AppCompatActivity {
     DrawerLayout drawerLayout;
     ImageView imageView;
     NavigationView navigationView;
+    private TextView edit_text;
+    private TextView verify_id;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -61,6 +64,26 @@ public class ProfileMenuActivity extends AppCompatActivity {
                 drawerLayout.close();
 
                 return true;
+            }
+        });
+        edit_text = findViewById(R.id.personaldetails);
+        verify_id = findViewById(R.id.verifyid);
+
+
+
+        edit_text.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v1) {
+                Intent i4 = new Intent(getApplicationContext(), PersonalActivity.class);
+                startActivity(i4);
+            }
+        });
+
+        verify_id.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v3) {
+                Intent i5 = new Intent(getApplicationContext(), VerifyidActivity.class);
+                startActivity(i5);
             }
         });
         BottomNavigationView bottomNavigationView = findViewById(R.id.bottom_navigation);
