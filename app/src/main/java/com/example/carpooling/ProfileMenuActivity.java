@@ -1,5 +1,6 @@
 package com.example.carpooling;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
@@ -9,6 +10,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 import androidx.activity.EdgeToEdge;
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.drawerlayout.widget.DrawerLayout;
 
@@ -110,13 +112,38 @@ public class ProfileMenuActivity extends AppCompatActivity {
     }
 
     private void logout() {
-        // Clear user data from SharedPreferences
-        preferenceManager.clear();
+        // Create an AlertDialog builder
+        AlertDialog.Builder builder = new AlertDialog.Builder(ProfileMenuActivity.this);
+        builder.setTitle("Logout");
+        builder.setMessage("Are you sure you want to logout?");
 
-        // Navigate to LoginActivity
-        Intent intent = new Intent(ProfileMenuActivity.this, LoginActivity.class);
-        intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
-        startActivity(intent);
-        finish();
+        // Set positive button to handle the logout action
+        builder.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                // Clear user data from SharedPreferences
+                preferenceManager.clear();
+
+                // Navigate to LoginActivity
+                Intent intent = new Intent(ProfileMenuActivity.this, LoginActivity.class);
+                intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                startActivity(intent);
+                finish();
+            }
+        });
+
+        // Set negative button to dismiss the dialog
+        builder.setNegativeButton("No", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                // Dismiss the dialog
+                dialog.dismiss();
+            }
+        });
+
+        // Show the AlertDialog
+        AlertDialog alertDialog = builder.create();
+        alertDialog.show();
     }
+
 }
