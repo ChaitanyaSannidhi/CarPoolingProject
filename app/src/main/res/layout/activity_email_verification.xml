@@ -1,0 +1,55 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:orientation="vertical"
+    android:gravity="center"
+    tools:context=".EmailVerificationActivity">
+
+    <TextView
+        android:id="@+id/otp_title"
+        android:layout_width="293dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:text="OTP Verification"
+        android:textAlignment="center"
+        android:textColor="@color/black"
+        android:textSize="24sp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/otp_instruction"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="Please enter the OTP sent to your email"
+        android:textSize="16sp"
+        android:textColor="@color/black" />
+
+    <EditText
+        android:id="@+id/otpEditText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:hint="Enter OTP"
+        android:inputType="number"
+        android:gravity="center"
+        android:textAlignment="center"
+        android:textSize="18sp"
+        android:background="@drawable/edittext_border"
+        android:padding="12dp"
+        android:minWidth="200dp" />
+
+    <Button
+        android:id="@+id/verifyButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:text="Verify"
+        android:textSize="18sp"
+        android:background="#8a2be2"
+        android:textColor="@android:color/white"
+        android:padding="12dp" />
+
+</LinearLayout>
