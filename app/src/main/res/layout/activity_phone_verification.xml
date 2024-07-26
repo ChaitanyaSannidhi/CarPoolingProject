@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    tools:context=".PhoneVerificationActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:padding="16dp">
+
+        <TextView
+            android:id="@+id/tv_verification_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Phone Verification"
+            android:textColor="@color/black"
+            android:textSize="24sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/tv_verification_subtitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:text="Enter the OTP sent to your phone"
+            android:textColor="#8a2be2"
+            android:textSize="16sp" />
+
+        <EditText
+            android:id="@+id/et_otp"
+            android:layout_width="349dp"
+            android:layout_height="56dp"
+            android:layout_marginTop="20dp"
+            android:background="@drawable/otp_edit_text_background"
+            android:hint="Enter OTP"
+            android:inputType="number"
+            android:padding="10dp"
+            android:textColor="@color/black"
+            android:textSize="18sp" />
+
+        <Button
+            android:id="@+id/btn_verify"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:background="@color/primaryColor"
+            android:text="Verify"
+            android:textColor="@color/white"
+            android:textSize="18sp" />
+
+        <TextView
+            android:id="@+id/tv_resend_otp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:text="Resend OTP"
+            android:textColor="@color/primaryColor"
+            android:textSize="16sp" />
+
+    </LinearLayout>
+
+</RelativeLayout>

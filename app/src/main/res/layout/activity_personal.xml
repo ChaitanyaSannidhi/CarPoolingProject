@@ -144,12 +144,12 @@
         app:layout_constraintStart_toStartOf="parent" />
 
     <Button
-        android:id="@+id/savebutton"
+        android:id="@+id/continuebutton"
         android:layout_width="281dp"
         android:layout_height="50dp"
         android:layout_marginBottom="56dp"
         android:backgroundTint="#8A2BE2"
-        android:text="Save"
+        android:text="Continue"
         android:textSize="25sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"

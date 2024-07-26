@@ -51,10 +51,10 @@ public class PersonalActivity extends AppCompatActivity {
         editTextEmail = findViewById(R.id.enteremailid);
         editTextPhone = findViewById(R.id.editTextPhone);
         spinnerCountryCode = findViewById(R.id.spinnerCountryCode);
-        buttonSave = findViewById(R.id.savebutton);
+        buttonSave = findViewById(R.id.continuebutton);
         dateTextView = findViewById(R.id.dateTextView);
         calendarView = findViewById(R.id.calendarView);
-        calendarView.setVisibility(View.GONE); // Ensure calendar is initially hidden
+        calendarView.setVisibility(View.GONE);
 
         mAuth = FirebaseAuth.getInstance();
         db = FirebaseFirestore.getInstance();
