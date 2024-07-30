@@ -25,5 +25,11 @@
         android:orderInCategory="100"
         app:showAsAction="never"
         android:icon="@drawable/outline_auto_graph_24"/>
+    <item
+        android:id="@+id/PhoneVerify"
+        android:title="Verify Your Number"
+        android:orderInCategory="100"
+        app:showAsAction="never"
+        android:icon="@drawable/call"/>
 
 </menu>

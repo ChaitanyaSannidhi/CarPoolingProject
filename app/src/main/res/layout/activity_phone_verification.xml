@@ -42,6 +42,15 @@
             android:padding="10dp"
             android:textColor="@color/black"
             android:textSize="18sp" />
+        <Button
+            android:id="@+id/btn_send"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:background="@color/primaryColor"
+            android:text="Send OTP"
+            android:textColor="@color/white"
+            android:textSize="18sp" />
 
         <Button
             android:id="@+id/btn_verify"

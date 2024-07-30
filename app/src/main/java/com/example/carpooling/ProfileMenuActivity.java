@@ -57,6 +57,9 @@ public class ProfileMenuActivity extends AppCompatActivity {
                     logout();
                 } else if (itemId == R.id.view_statistics){
                     Toast.makeText(ProfileMenuActivity.this, "Clicked Statistics", Toast.LENGTH_SHORT).show();
+                }else if (itemId == R.id.PhoneVerify){
+                    Intent i2 = new Intent(getApplicationContext(), PhoneVerificationActivity.class);
+                    startActivity(i2);
                 }
                 drawerLayout.close();
 
