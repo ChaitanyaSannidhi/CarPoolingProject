@@ -1,33 +1,32 @@
 package com.example.carpooling;
 
+import android.app.DatePickerDialog;
 import android.content.Intent;
 import android.os.Bundle;
-import android.view.MenuItem;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
-import android.widget.CalendarView;
 import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentTransaction;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
-import com.google.android.material.navigation.NavigationBarView;
 import com.google.firebase.firestore.FirebaseFirestore;
 
+import java.util.Calendar;
 import java.util.HashMap;
 import java.util.Map;
 
 public class OfferActivity extends AppCompatActivity {
 
-    private CalendarView calendarView;
     private EditText startPointEditText, destinationEditText, intermediatePointsEditText;
     private TextView dateText;
     private Spinner seatSpinner;
@@ -87,27 +86,34 @@ public class OfferActivity extends AppCompatActivity {
 
         // Date selection logic
         dateText = findViewById(R.id.dateText);
-        calendarView = findViewById(R.id.calendarView);
-        calendarView.setVisibility(View.GONE); // Ensure calendar is initially hidden
-        dateText.setOnClickListener(v -> toggleCalendarViewVisibility());
-
-        calendarView.setOnDateChangeListener((view, year, month, dayOfMonth) -> {
-            String selectedDate = dayOfMonth + "/" + (month + 1) + "/" + year;
-            dateText.setText(selectedDate);
-            calendarView.setVisibility(View.GONE);
-        });
+        dateText.setOnClickListener(v -> showDatePickerDialog());
 
         // Button to save ride offer
         Button saveButton = findViewById(R.id.offer);
         saveButton.setOnClickListener(v -> saveRideOffer());
+
+        // Button to navigate to OfferFragment
+        Button offerButton = findViewById(R.id.offer); // Ensure this ID matches your XML layout
+        offerButton.setOnClickListener(v -> navigateToOfferFragment());
     }
 
-    private void toggleCalendarViewVisibility() {
-        if (calendarView.getVisibility() == View.GONE) {
-            calendarView.setVisibility(View.VISIBLE);
-        } else {
-            calendarView.setVisibility(View.GONE);
-        }
+    private void showDatePickerDialog() {
+        Calendar calendar = Calendar.getInstance();
+        int year = calendar.get(Calendar.YEAR);
+        int month = calendar.get(Calendar.MONTH);
+        int day = calendar.get(Calendar.DAY_OF_MONTH);
+
+        DatePickerDialog datePickerDialog = new DatePickerDialog(
+                this,
+                (view, selectedYear, selectedMonth, selectedDay) -> {
+                    String selectedDate = selectedDay + "/" + (selectedMonth + 1) + "/" + selectedYear;
+                    dateText.setText(selectedDate);
+                },
+                year, month, day);
+        datePickerDialog.getDatePicker().setMinDate(calendar.getTimeInMillis()); // Set min date to today
+
+        // Show the date picker dialog
+        datePickerDialog.show();
     }
 
     private void saveRideOffer() {
@@ -143,11 +149,20 @@ public class OfferActivity extends AppCompatActivity {
                     Toast.makeText(OfferActivity.this, "Error saving ride offer: " + e.getMessage(), Toast.LENGTH_SHORT).show();
                 });
     }
+
     private void clearFields() {
         startPointEditText.setText("");
         destinationEditText.setText("");
         intermediatePointsEditText.setText("");
         dateText.setText("");
         seatSpinner.setSelection(0);
+    }
+
+    private void navigateToOfferFragment() {
+        Fragment offerFragment = new OfferFragment(); // Make sure you have this fragment class
+        FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
+        transaction.replace(R.id.fragment_container, offerFragment); // Ensure this ID matches your XML layout
+        transaction.addToBackStack(null);
+        transaction.commit();
     }
 }
