@@ -1,12 +1,13 @@
 package com.example.carpooling;
 
+import android.app.DatePickerDialog;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.util.Log;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
-import android.widget.CalendarView;
+import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.TextView;
@@ -22,18 +23,17 @@ import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.FirebaseFirestore;
 
+import java.util.Calendar;
 import java.util.HashMap;
 import java.util.Map;
 
 public class PersonalActivity extends AppCompatActivity {
-    private CalendarView calendarView;
     private EditText editTextName, editTextEmail, editTextPhone;
     private Spinner spinnerCountryCode;
     private Button buttonSave;
     private TextView dateTextView;
     private FirebaseAuth mAuth;
     private FirebaseFirestore db;
-    private String selectedDate;
     private static final String TAG = "PersonalActivity";
 
     @Override
@@ -53,8 +53,6 @@ public class PersonalActivity extends AppCompatActivity {
         spinnerCountryCode = findViewById(R.id.spinnerCountryCode);
         buttonSave = findViewById(R.id.continuebutton);
         dateTextView = findViewById(R.id.dateTextView);
-        calendarView = findViewById(R.id.calendarView);
-        calendarView.setVisibility(View.GONE);
 
         mAuth = FirebaseAuth.getInstance();
         db = FirebaseFirestore.getInstance();
@@ -64,13 +62,7 @@ public class PersonalActivity extends AppCompatActivity {
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinnerCountryCode.setAdapter(adapter);
 
-        dateTextView.setOnClickListener(v -> toggleCalendarViewVisibility());
-
-        calendarView.setOnDateChangeListener((view, year, month, dayOfMonth) -> {
-            selectedDate = dayOfMonth + "/" + (month + 1) + "/" + year;
-            dateTextView.setText(selectedDate);
-            calendarView.setVisibility(View.GONE);
-        });
+        dateTextView.setOnClickListener(v -> showDatePickerDialog());
 
         buttonSave.setOnClickListener(v -> {
             String name = editTextName.getText().toString().trim();
@@ -85,6 +77,23 @@ public class PersonalActivity extends AppCompatActivity {
                 Toast.makeText(PersonalActivity.this, "Empty Fields", Toast.LENGTH_SHORT).show();
             }
         });
+    }
+
+    private void showDatePickerDialog() {
+        Calendar calendar = Calendar.getInstance();
+        int year = calendar.get(Calendar.YEAR);
+        int month = calendar.get(Calendar.MONTH);
+        int day = calendar.get(Calendar.DAY_OF_MONTH);
+
+        DatePickerDialog datePickerDialog = new DatePickerDialog(this, (view, year1, month1, dayOfMonth) -> {
+            String selectedDate = dayOfMonth + "/" + (month1 + 1) + "/" + year1;
+            dateTextView.setText(selectedDate);
+        }, year, month, day);
+
+        // Set maximum date to today
+        datePickerDialog.getDatePicker().setMaxDate(calendar.getTimeInMillis());
+
+        datePickerDialog.show();
     }
 
     private void saveProfile(String name, String email, String phone, String countryCode, String dob) {
@@ -110,22 +119,5 @@ public class PersonalActivity extends AppCompatActivity {
         } else {
             Toast.makeText(this, "User not authenticated", Toast.LENGTH_SHORT).show();
         }
-    }
-
-    private void toggleCalendarViewVisibility() {
-        if (calendarView.getVisibility() == View.GONE) {
-            calendarView.setVisibility(View.VISIBLE);
-        } else {
-            calendarView.setVisibility(View.GONE);
-        }
-    }
-
-    private int getIndex(Spinner spinner, String value) {
-        for (int i = 0; i < spinner.getCount(); i++) {
-            if (spinner.getItemAtPosition(i).toString().equals(value)) {
-                return i;
-            }
-        }
-        return 0;
     }
 }
