@@ -1,5 +1,6 @@
 package com.example.carpooling;
 
+import android.app.DatePickerDialog;
 import android.content.Intent;
 import android.os.Bundle;
 
@@ -13,6 +14,7 @@ import androidx.core.view.WindowInsetsCompat;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.CalendarView;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
@@ -22,6 +24,8 @@ import android.widget.Toast;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.navigation.NavigationBarView;
+
+import java.util.Calendar;
 
 public class RequestActivity extends AppCompatActivity {
 
@@ -74,32 +78,31 @@ public class RequestActivity extends AppCompatActivity {
                 return false;
             }
         });
-
-        // Date selection logic
+        Button btn2 = findViewById(R.id.Request);
+        btn2.setOnClickListener(v2 -> {
+            Toast.makeText(RequestActivity.this, "Working", Toast.LENGTH_SHORT).show();
+            Intent i2 = new Intent(getApplicationContext(), Request_recycleActivity.class);
+            startActivity(i2);
+        });
         dateText = findViewById(R.id.dateText);
-        calendarView = findViewById(R.id.calendarView);
-        calendarView.setVisibility(View.GONE); // Ensure calendar is initially hidden
-        dateText.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                calendarView.setVisibility(View.VISIBLE);
-            }
-        });
-
-        dateText.setOnClickListener(v -> toggleCalendarViewVisibility());
-
-        calendarView.setOnDateChangeListener((view, year, month, dayOfMonth) -> {
-            String selectedDate = dayOfMonth + "/" + (month + 1) + "/" + year;
-            dateText.setText(selectedDate);
-            calendarView.setVisibility(View.GONE);
-        });
+        dateText.setOnClickListener(v -> showDatePickerDialog());
     }
+    private void showDatePickerDialog() {
+        Calendar calendar = Calendar.getInstance();
+        int year = calendar.get(Calendar.YEAR);
+        int month = calendar.get(Calendar.MONTH);
+        int day = calendar.get(Calendar.DAY_OF_MONTH);
 
-    private void toggleCalendarViewVisibility() {
-        if (calendarView.getVisibility() == View.GONE) {
-            calendarView.setVisibility(View.VISIBLE);
-        } else {
-            calendarView.setVisibility(View.GONE);
-        }
+        DatePickerDialog datePickerDialog = new DatePickerDialog(
+                this,
+                (view, selectedYear, selectedMonth, selectedDay) -> {
+                    String selectedDate = selectedDay + "/" + (selectedMonth + 1) + "/" + selectedYear;
+                    dateText.setText(selectedDate);
+                },
+                year, month, day);
+        datePickerDialog.getDatePicker().setMinDate(calendar.getTimeInMillis()); // Set min date to today
+
+        // Show the date picker dialog
+        datePickerDialog.show();
     }
 }
