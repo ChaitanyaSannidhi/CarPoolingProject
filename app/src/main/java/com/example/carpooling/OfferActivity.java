@@ -19,11 +19,14 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.firestore.FirebaseFirestore;
 
 import java.util.Calendar;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Objects;
 
 public class OfferActivity extends AppCompatActivity {
 
@@ -31,6 +34,7 @@ public class OfferActivity extends AppCompatActivity {
     private TextView dateText;
     private Spinner seatSpinner;
     private FirebaseFirestore db;
+    private FirebaseAuth auth;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,7 +43,7 @@ public class OfferActivity extends AppCompatActivity {
 
         // Initialize Firestore
         db = FirebaseFirestore.getInstance();
-
+        auth = FirebaseAuth.getInstance();
         // Initialize Spinner for seat selection
         seatSpinner = findViewById(R.id.seatSpinner);
         ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this,
@@ -128,7 +132,12 @@ public class OfferActivity extends AppCompatActivity {
             Toast.makeText(this, "Please fill in all fields", Toast.LENGTH_SHORT).show();
             return;
         }
-
+        FirebaseUser currentUser = auth.getCurrentUser();
+        if (currentUser == null) {
+            Toast.makeText(this, "User not authenticated", Toast.LENGTH_SHORT).show();
+            return;
+        }
+        String userId = currentUser.getUid();
         // Create a new ride offer document in "rides" collection
         Map<String, Object> rideOffer = new HashMap<>();
         rideOffer.put("date", selectedDate);
@@ -136,6 +145,8 @@ public class OfferActivity extends AppCompatActivity {
         rideOffer.put("start_point", startPoint);
         rideOffer.put("destination", destination);
         rideOffer.put("intermediate_points", intermediatePoints);
+        rideOffer.put("user_id",userId);
+
 
         // Add a new document with a generated ID
         db.collection("rides")

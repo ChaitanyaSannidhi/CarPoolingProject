@@ -1,8 +1,13 @@
 package com.example.carpooling;
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.LayoutInflater;
 import android.view.MenuItem;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
@@ -11,9 +16,12 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.navigation.NavigationBarView;
+
+import java.util.ArrayList;
 
 public class YourRidesActivity extends AppCompatActivity {
 
@@ -52,5 +60,42 @@ public class YourRidesActivity extends AppCompatActivity {
                 return false;
             }
         });
+    }
+
+    public static class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
+        private Context context;
+        private ArrayList<User> userArrayList;
+
+        public MyAdapter(Context context, ArrayList<User> userArrayList) {
+            this.context = context;
+            this.userArrayList = userArrayList;
+        }
+
+        @NonNull
+        @Override
+        public MyViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+            View view = LayoutInflater.from(context).inflate(R.layout.recyclerviewitem, parent, false);
+            return new MyViewHolder(view);
+        }
+
+        @Override
+        public void onBindViewHolder(@NonNull MyViewHolder holder, int position) {
+            User user = userArrayList.get(position);
+            holder.textView.setText(user.getName());
+        }
+
+        @Override
+        public int getItemCount() {
+            return userArrayList.size();
+        }
+
+        public static class MyViewHolder extends RecyclerView.ViewHolder {
+            TextView textView;
+
+            public MyViewHolder(@NonNull View itemView) {
+                super(itemView);
+                textView = itemView.findViewById(R.id.textView);
+            }
+        }
     }
 }

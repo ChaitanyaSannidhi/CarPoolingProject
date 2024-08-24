@@ -37,7 +37,6 @@ android {
 }
 
 dependencies {
-
     implementation(libs.appcompat)
     implementation(libs.material)
     implementation(libs.activity)
@@ -47,18 +46,40 @@ dependencies {
     testImplementation(libs.junit)
     androidTestImplementation(libs.ext.junit)
     androidTestImplementation(libs.espresso.core)
-    implementation(platform("com.google.firebase:firebase-bom:33.1.1"))
-    implementation("com.google.firebase:firebase-analytics")
-    // Firebase Auth
-    implementation("com.google.firebase:firebase-auth:21.1.0")
-    // Firestore Database
-    implementation ("com.google.firebase:firebase-firestore:23.0.0")
-    // Google Play services
-    implementation("com.google.android.gms:play-services-auth:20.1.0")
-    implementation("com.google.firebase:firebase-auth:21.1.0")
-    implementation("com.google.firebase:firebase-database:20.1.0")
-    implementation ("com.google.android.gms:play-services-maps:18.1.0")
-    implementation ("androidx.fragment:fragment:1.4.1")
-    implementation ("com.google.android.material:material:1.8.0")
 
+    // Firebase BOM
+    implementation(platform("com.google.firebase:firebase-bom:33.1.1"))
+
+    // Firebase Analytics
+    implementation("com.google.firebase:firebase-analytics")
+
+    // Firebase Authentication
+    implementation("com.google.firebase:firebase-auth")
+
+    // Firestore Database
+    implementation("com.google.firebase:firebase-firestore")
+
+    // Google Play Services
+    implementation("com.google.android.gms:play-services-auth:20.1.0")
+    implementation("com.google.android.gms:play-services-maps:18.1.0")
+
+    // Firebase Realtime Database
+    implementation("com.google.firebase:firebase-database")
+
+    // Fragment
+    implementation("androidx.fragment:fragment:1.4.1")
+
+    // Material Components
+    implementation("com.google.android.material:material:1.8.0")
+
+    // Firebase Storage
+    implementation("com.google.firebase:firebase-storage")
+
+    // Image loading libraries
+    implementation("com.squareup.picasso:picasso:2.71828")
+
+    // retrofit libraries
+    implementation ("com.squareup.retrofit2:retrofit:2.9.0")
+    implementation ("com.squareup.retrofit2:converter-gson:2.9.0")
+    implementation ("androidx.databinding:databinding-runtime:4.1.2")
 }
